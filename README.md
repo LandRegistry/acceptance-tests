@@ -3,7 +3,7 @@ Frontend Acceptance Tests
 
 ### Overview
 
-This is the 
+This repository contains the front end tests for all the systems.
 
 ### Installing
 
