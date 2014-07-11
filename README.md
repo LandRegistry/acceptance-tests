@@ -36,6 +36,6 @@ cucumber
 Or to run a specific feature:
 
 ```
-cucumber features\sample.feature
+cucumber features/sample.feature
 ```
 
