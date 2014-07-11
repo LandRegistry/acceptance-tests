@@ -25,8 +25,17 @@ Then install the required gems
 bundle install
 ```
 
-To run cucumber tests use:
+### Running the tests
+
+To run all the tests:
 
 ```
 cucumber
 ```
+
+Or to run a specific feature:
+
+```
+cucumber features\sample.feature
+```
+
