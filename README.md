@@ -1,4 +1,6 @@
 Frontend Acceptance Tests
 ===============
 
-Todo...
+Install QT
+
+<Code>brew install qt</code>
