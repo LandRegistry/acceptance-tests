@@ -19,7 +19,7 @@ Then install bundle:
 gem install bundler
 ```
 
-Then install the required gems
+Then run bundler (this will install all required gems)
 
 ```
 bundle install
