@@ -1,15 +1,15 @@
 Given(/^I have received an application for a first registration$/) do
   $data = Hash.new()
-  $data['titleNumber'] = 'TEST1234'
-  $data['propertyHouseNumber'] = '3'
-  $data['propertyRoad'] = 'The road'
-  $data['propertyTown'] = 'Plymouth'
-  $data['propertyPostcode'] = 'PL1 6GH'
-  $data['pricePaid'] = '300453'
+  $data['titleNumber'] = titleNumber()
+  $data['propertyHouseNumber'] = houseNumber()
+  $data['propertyRoad'] = road()
+  $data['propertyTown'] = town()
+  $data['propertyPostcode'] = postcode()
+  $data['pricePaid'] = pricePaid()
   $data['forename1'] = firstName()
-  $data['surname1'] = 'Lewis'
-  $data['forename2'] = 'Andy'
-  $data['surname2'] = 'Moore'
+  $data['surname1'] = surname()
+  $data['forename2'] = firstName()
+  $data['surname2'] = surname()
 end
 
 Given(/^I am on the first registration entry screen$/) do

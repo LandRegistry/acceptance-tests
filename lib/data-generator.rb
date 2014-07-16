@@ -1,5 +1,5 @@
 def titleNumber()
-
+  $title_start = rand(999999).to_s
 	$prefix = [*('A'..'Z')].sample(2).join
   	$title = $prefix + $title_start
 	$title_start = ($title_start.to_i + 1).to_s
@@ -108,4 +108,91 @@ def postcode()
 
   return $pcode[$pcode_num]
 
+end
+
+def houseNumber()
+	$h_num = rand(1 .. 9999)
+	return $h_num
+end
+
+def road()
+
+	if (defined?($road)).nil? # checks whether the array already exists
+		$road = Array.new
+	end
+
+	$road << 'Allgood Street'
+	$road << 'Bardsley Lane (part)'
+	$road << 'Carlton Drive'
+	$road << 'Derby Gate'
+	$road << 'Exmouth Market'
+	$road << 'Falconberg Mews'
+	$road << 'Gentian Row'
+	$road << 'Harrington Way'
+	$road << 'Iverna Court'
+	$road << 'Jaspar Road'
+	$road << 'Kingsmill Terrace'
+	$road << 'Leitrim Passage'
+	$road << 'Manor House Road'
+	$road << 'North End Crescent'
+	$road << 'Osier Place'
+	$road << 'Palace Gardens Terrace'
+	$road << 'Quick Street'
+	$road << 'Richmond Terrace Mews'
+	$road << "St. Anselm's Place"
+	$road << 'Trinity Church Square'
+	$road << 'Upper Tulse Hill'
+	$road << 'Victoria Rise'
+	$road << 'Waverley Crescent'
+	$road << 'Yoakley Road'
+	$road << 'Vauxhall Grove'
+	$road << 'Zealand Road'
+
+	$road_num = rand(0 .. 25)
+
+	return $road[$road_num]
+
+end
+
+def town()
+
+	if (defined?($town)).nil? # checks whether the array already exists
+		$town = Array.new
+	end
+
+	$town << 'Abercwmboi'
+	$town << 'Bridgend'
+	$town << 'Crickhowell'
+	$town << "Dinnington St John's"
+	$town << 'East Retford'
+	$town << 'Fordbridge'
+	$town << 'Grange-over-Sands'
+	$town << 'Hay-on-Wye'
+	$town << 'Ivybridge'
+	$town << 'Jarrow'
+	$town << 'Kirkby-in-Ashfield'
+	$town << 'Lyme Regis'
+	$town << 'Malmesbury'
+	$town << 'Needham Market'
+	$town << 'Ollerton and Boughton'
+	$town << 'Penrith'
+	$town << 'Queenborough-in-Sheppey'
+	$town << 'Rayleigh'
+	$town << "St Just-in-Penwith"
+	$town << 'Tewkesbury'
+	$town << 'Upton-upon-Severn'
+	$town << 'Ventnor'
+	$town << 'Walton-on-Thames'
+	$town << 'Yate'
+	$town << 'Telford'
+	$town << 'Torquay'
+
+	$town_num = rand(0 .. 25)
+
+	return $town[$town_num]
+end
+
+def pricePaid()
+	$p_paid = rand(100000 .. 9999000)
+	return $p_paid
 end
