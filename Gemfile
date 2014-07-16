@@ -5,3 +5,4 @@ source "https://rubygems.org"
 
 gem 'capybara-webkit', '1.2.0'
 gem 'cucumber', '1.3.15'
+gem 'selenium-webdriver', '2.42.0'
