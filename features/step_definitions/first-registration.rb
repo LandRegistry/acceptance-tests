@@ -14,8 +14,8 @@ end
 
 Given(/^I am on the first registration entry screen$/) do
   visit('http://0.0.0.0:8004')
+
   #temporarily enter a title number until it generates itself
-  #page.save_screenshot "sshot-#{Time.new.to_i}.png"
   fill_in('titleNumber', :with => $data['titleNumber'])
 end
 
@@ -55,7 +55,9 @@ When(/^I Register the transaction$/) do
 end
 
 Then(/^the first registration is registered$/) do
-  find(".//*[@id='success']")
+  if (!page.body.include? 'Your Application was Successfully Registered') then
+    raise "Expected registration message but was not present"
+  end
 end
 
 When(/^I select class of Good$/) do
@@ -80,13 +82,9 @@ Then(/^an error page will be displayed$/) do
 end
 
 Then(/^a Title Number is displayed$/) do
-  page.save_screenshot "sshot-#{Time.new.to_i}.png"
-  assert_no_selector(".//*[@id='titleNumber']", text: '')
-  #find(".//*[@id='titleNumber' and text()='']")
-  #assert_no_selector ('titleNumber')
-  #if find(".//*[@id='titleNumber']").text =="" then
-#    raise "There is no titleNumber!"
-#  end
+  if find(".//*[@id='titleNumber']").value == "" then
+    raise "There is no titleNumber!"
+  end
 end
 
 Then(/^Title Number is formatted correctly$/) do
