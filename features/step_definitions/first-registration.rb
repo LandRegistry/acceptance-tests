@@ -6,7 +6,7 @@ Given(/^I have received an application for a first registration$/) do
   $data['propertyTown'] = 'Plymouth'
   $data['propertyPostcode'] = 'PL1 6GH'
   $data['pricePaid'] = '300453'
-  $data['forename1'] = 'Geoff'
+  $data['forename1'] = firstName()
   $data['surname1'] = 'Lewis'
   $data['forename2'] = 'Andy'
   $data['surname2'] = 'Moore'
