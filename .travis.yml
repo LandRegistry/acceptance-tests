@@ -1,4 +1,16 @@
-language:
-  - Ruby
+language: ruby
+rvm:
+  - 2.1.1
+
+install: true
+
+before_script:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq python  python-pip
+  - bundle install
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - ./install_sut_deps.sh
+
 script:
-  - cucumber
+  - bundle exec cucumber
