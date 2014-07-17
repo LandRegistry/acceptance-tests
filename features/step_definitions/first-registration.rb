@@ -14,7 +14,7 @@ end
 
 Given(/^I am on the first registration entry screen$/) do
   visit($CASEWORK_FRONTEND_URL)
-  
+
   #temporarily enter a title number until it generates itself
   fill_in('titleNumber', :with => $data['titleNumber'])
 end
@@ -78,7 +78,9 @@ When(/^I enter an invalid price paid$/) do
 end
 
 Then(/^an error page will be displayed$/) do
-  find(".//*[@id='error']")
+  if (!page.body.include? 'Some Error Message') then
+    raise "Expected error message but was not present"
+  end
 end
 
 Then(/^a Title Number is displayed$/) do

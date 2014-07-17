@@ -1,3 +1,4 @@
+@wip
 Feature: citizen view register
 
 Scenario: view register as citizen
