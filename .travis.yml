@@ -9,4 +9,4 @@ before_script:
   - "export CASEWORK_FRONTEND_URL=http://lr-casework-frontend.herokuapp.com"
 
 script:
-  - bundle exec cucumber
+  - bundle exec cucumber --tags ~@wip
