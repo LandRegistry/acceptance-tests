@@ -9,10 +9,10 @@ This repository contains the front end tests for all the systems.
 
 ### Installing
 
-Install QT using homebrew
+Install Phantomjs using homebrew
 
 ```
-brew install qt
+brew update && brew install phantomjs
 ```
 
 Then install bundle:
@@ -40,4 +40,3 @@ Or to run a specific feature:
 ```
 cucumber features/sample.feature
 ```
-
