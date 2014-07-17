@@ -12,7 +12,7 @@ Given(/^I have received an application for a first registration$/) do
   $data['surname2'] = surname()
 end
 
-Given(/^I am on the first registration entry screen$/) do
+Given(/^I want to create a Register of Title$/) do
   visit($CASEWORK_FRONTEND_URL)
 
   #temporarily enter a title number until it generates itself
@@ -50,7 +50,7 @@ When(/^I enter 2 proprietors$/) do
   fill_in('surname2', :with => $data['surname2'])
 end
 
-When(/^I Register the transaction$/) do
+When(/^I submit the title details$/) do
   click_button('Register')
 end
 
@@ -92,4 +92,12 @@ end
 Then(/^Title Number is formatted correctly$/) do
   $titleNumber = find(".//*[@id='titleNumber']").text
   #need to check format here
+end
+
+Then(/^I have received confirmation that it has been registered$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^Title Number is unique$/) do
+  pending # express the regexp above with the code you wish you had
 end
