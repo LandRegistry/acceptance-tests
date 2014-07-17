@@ -1,4 +1,4 @@
-@webuitest
+@wip
 Feature: View Register
 
 Scenario: View public register details
