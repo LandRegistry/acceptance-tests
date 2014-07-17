@@ -1,3 +1,4 @@
+@wip
 Feature: Confirm audit logs are written
 
 @viewRegisterAudit
