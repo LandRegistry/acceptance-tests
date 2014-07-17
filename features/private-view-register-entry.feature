@@ -1,3 +1,4 @@
+@wip
 Feature: login and view private register
 
 Scenario: Invalid username login failed
