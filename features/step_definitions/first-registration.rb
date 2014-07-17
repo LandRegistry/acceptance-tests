@@ -14,7 +14,7 @@ end
 
 Given(/^I am on the first registration entry screen$/) do
   visit($CASEWORK_FRONTEND_URL)
-
+  
   #temporarily enter a title number until it generates itself
   fill_in('titleNumber', :with => $data['titleNumber'])
 end
