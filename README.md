@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/LandRegistry/front-end-tests.svg?branch=mast)](https://travis-ci.org/LandRegistry/front-end-tests)
+
 Frontend Acceptance Tests
 ===============
 
