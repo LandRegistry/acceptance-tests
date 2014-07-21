@@ -1,13 +1,15 @@
 language: ruby
+cache: bundler
 rvm:
   - 2.1.1
-
 install: true
 env:
   global:
     - CASEWORK_FRONTEND_DOMAIN=http://lr-casework-frontend.herokuapp.com
     - SEARCH_FRONTEND_DOMAIN=http://lr-property.herokuapp.com
     - PROPERTY_FRONTEND_DOMAIN=http://lr-property.herokuapp.com
+before_install:
+- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 before_script:
   - bundle install
 script:
