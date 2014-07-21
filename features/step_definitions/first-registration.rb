@@ -91,6 +91,8 @@ end
 
 Then(/^Title Number is formatted correctly$/) do
   $titleNumber = find(".//*[@id='titleNumber']").text
+  puts $titleNumber[0,3]
+  puts $titleNumber[4,7]
   #need to check format here
 end
 

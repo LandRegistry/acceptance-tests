@@ -1,6 +1,7 @@
 def titleNumber()
-  $title_start = rand(999999).to_s
-	$prefix = [*('A'..'Z')].sample(2).join
+  $title_start = rand(99999).to_s
+	#$prefix = [*('A'..'Z')].sample(2).join
+  $prefix = "TEST"
   	$title = $prefix + $title_start
 	$title_start = ($title_start.to_i + 1).to_s
 	return $prefix + $title_start
