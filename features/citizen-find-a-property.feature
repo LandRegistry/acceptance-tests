@@ -1,4 +1,3 @@
-@wip
 Feature: Citizen find a property
 
 Scenario: No Title Number match for citizen
