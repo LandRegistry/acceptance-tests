@@ -7,6 +7,7 @@ install: true
 before_script:
   - bundle install
   - "export CASEWORK_FRONTEND_DOMAIN=http://lr-casework-frontend.herokuapp.com"
-
+  - "export SEARCH_FRONTEND_DOMAIN=http://lr-property.herokuapp.com"
+  - "export PROPERTY_FRONTEND_DOMAIN=http://lr-property.herokuapp.com"
 script:
   - bundle exec cucumber --tags ~@wip
