@@ -1,7 +1,6 @@
 require 'capybara/cucumber'
 require 'capybara/poltergeist'
 require 'selenium-webdriver'
-
 require 'w3c_validators'
 
 include W3CValidators

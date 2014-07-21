@@ -16,7 +16,7 @@ Scenario: Processing Good Leasehold First Registration with 1 proprietor (4)
 Given I have received an application for a first registration
 And I want to create a Register of Title
 When I enter a Property Address
-And I choose a tenure of Freehold
+And I choose a tenure of Leasehold
 And I select class of Good
 And I enter a valid price paid
 And I enter 1 proprietor
@@ -67,7 +67,7 @@ And I choose a tenure of Freehold
 And I select class of Absolute
 And I enter a valid price paid
 And I submit the title details
-Then an error page will be displayed
+Then the user will be prompted again for a proprietor
 
 Scenario: Testing Title Number is generated and valid (1)
 Given I have received an application for a first registration
@@ -84,4 +84,4 @@ And I select class of Absolute
 And I enter a valid price paid
 And I enter 1 proprietor
 And I submit the title details
-Then an error page will be displayed
+Then the user will be prompted again for required address fields
