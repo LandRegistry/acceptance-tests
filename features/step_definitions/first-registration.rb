@@ -59,10 +59,13 @@ When(/^I submit the title details$/) do
 end
 
 Then(/^the first registration is registered$/) do
-  #This script needs to check the DB or property page shown
-  if (!page.body.include? 'Successfully created title with number') then
-    raise "Expected registration message but was not present"
+  visit($PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber'])
+  if (!page.body.include? 'Details for the following title number') then
+    raise "Could not find register details for titlenumber " + $data['titleNumber']
   end
+
+
+
 end
 
 Then(/^the user will be prompted again for a proprietor$/) do
@@ -132,5 +135,10 @@ Then(/^I have received confirmation that it has been registered$/) do
 end
 
 Then(/^Title Number is unique$/) do
-  #Is there a way to check this?
+  step "I am searching for that property"
+  step "I enter the exact Title Number"
+  step "I search"
+  if (page.all(".//*[@id='ordered']/li").count != 1) then
+    raise "Expected only 1 result"
+  end
 end
