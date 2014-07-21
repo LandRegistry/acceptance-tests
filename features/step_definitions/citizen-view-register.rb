@@ -25,5 +25,6 @@ Then(/^an error will be displayed$/) do
 end
 
 When(/^I view the register$/) do
+  puts $PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber']
   visit($PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber'])
 end
