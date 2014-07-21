@@ -6,7 +6,7 @@ install: true
 
 before_script:
   - bundle install
-  - "export CASEWORK_FRONTEND_URL=http://lr-casework-frontend.herokuapp.com"
+  - "export CASEWORK_FRONTEND_DOMAIN=http://lr-casework-frontend.herokuapp.com"
 
 script:
   - bundle exec cucumber --tags ~@wip

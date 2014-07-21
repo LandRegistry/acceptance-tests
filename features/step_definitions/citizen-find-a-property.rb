@@ -1,4 +1,4 @@
-Given(/^I have a title number with a register$/) do
+Given(/^I have a registered property$/) do
   step "I have received an application for a first registration"
   step "I want to create a Register of Title"
   step "I enter a Property Address"
@@ -10,7 +10,7 @@ Given(/^I have a title number with a register$/) do
 end
 
 Given(/^I am searching for that property$/) do
-  visit($SEARCH_FRONTEND_URL + '/search')
+  visit($SEARCH_FRONTEND_DOMAIN + '/search')
 end
 
 Given(/^I am a citizen$/) do
@@ -18,7 +18,7 @@ Given(/^I am a citizen$/) do
 end
 
 When(/^I enter an incorrect Title Number \(non\-matching\)$/) do
-  fill_in('q', :with => '123456')
+  fill_in('search', :with => '123456')
 end
 
 When(/^I search$/) do
@@ -26,14 +26,14 @@ When(/^I search$/) do
 end
 
 Then(/^no results are found$/) do
-  pending
-  #if (!page.body.include? 'Some text saying no resultd') then
-  #  raise "Expected an error message saying no results, however this wasn't present"
-  #end
+  if (!page.body.include? 'No results found') then
+    raise "Expected an error message saying no results found, however this wasn't present"
+  end
 end
 
 When(/^I enter the exact Title Number$/) do
-  fill_in('q', :with => $data['titleNumber'])
+  puts $data['titleNumber']
+  fill_in('search', :with => $data['titleNumber'])
 end
 
 Then(/^the citizen register is displayed$/) do
@@ -51,7 +51,7 @@ Given(/^at least two registers with the same Title Number beginning exists$/) do
 end
 
 When(/^I enter a Title Number with the same prefix$/) do
-  fill_in('q', :with => 'TEST')
+  fill_in('search', :with => 'TEST')
 end
 
 Then(/^multiple results are displayed$/) do
