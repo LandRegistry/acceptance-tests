@@ -1,7 +1,3 @@
-Given(/^a register exists$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
 Given(/^I have login credentials$/) do
   pending # express the regexp above with the code you wish you had
 end

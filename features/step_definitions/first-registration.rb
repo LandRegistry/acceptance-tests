@@ -16,7 +16,8 @@ Given(/^I want to create a Register of Title$/) do
   visit($CASEWORK_FRONTEND_URL)
 
   #temporarily enter a title number until it generates itself
-  fill_in('titleNumber', :with => $data['titleNumber'])
+  #fill_in('titleNumber', :with => $data['titleNumber'])
+  $data['titleNumber'] = 'TEST1000'
 end
 
 When(/^I enter a Property Address$/) do
