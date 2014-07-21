@@ -10,7 +10,7 @@ Given(/^I have a title number with a register$/) do
 end
 
 Given(/^I am searching for that property$/) do
-  visit($SEARCH_FRONTEND_URL)
+  visit($SEARCH_FRONTEND_URL + '/search')
 end
 
 Given(/^I am a citizen$/) do
