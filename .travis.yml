@@ -3,11 +3,12 @@ rvm:
   - 2.1.1
 
 install: true
-
+env:
+  global:
+    - CASEWORK_FRONTEND_DOMAIN=http://lr-casework-frontend.herokuapp.com
+    - SEARCH_FRONTEND_DOMAIN=http://lr-property.herokuapp.com
+    - PROPERTY_FRONTEND_DOMAIN=http://lr-property.herokuapp.com
 before_script:
   - bundle install
-  - "export CASEWORK_FRONTEND_DOMAIN=http://lr-casework-frontend.herokuapp.com"
-  - "export SEARCH_FRONTEND_DOMAIN=http://lr-property.herokuapp.com"
-  - "export PROPERTY_FRONTEND_DOMAIN=http://lr-property.herokuapp.com"
 script:
   - bundle exec cucumber --tags ~@wip
