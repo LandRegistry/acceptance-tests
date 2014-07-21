@@ -13,6 +13,7 @@ Given(/^I have received an application for a first registration$/) do
 end
 
 Given(/^I want to create a Register of Title$/) do
+  puts $CASEWORK_FRONTEND_DOMAIN + '/registration'
   visit($CASEWORK_FRONTEND_DOMAIN + '/registration')
 
   #temporarily enter a title number until it generates itself
@@ -59,7 +60,7 @@ When(/^I submit the title details$/) do
 end
 
 Then(/^the first registration is registered$/) do
-  sleep(3) # Really don't like sleeps, but using it as inserting too quickly before querying the data. Will fix later
+  sleep(1) # Really don't like sleeps, but using it as inserting too quickly before querying the data. Will fix later
   puts $PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber']
   visit($PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber'])
   if (!page.body.include? 'Details for the following title number') then
@@ -105,8 +106,8 @@ When(/^I select class of Qualified$/) do
 end
 
 When(/^I enter an invalid price paid$/) do
-  $invalidPricePaid = "@£$%^&*Broken10"
-  fill_in('price_paid', :with => $invalidPricePaid)
+  $data['pricePaid'] = "@£$%^&*Broken10"
+  fill_in('price_paid', :with => $data['pricePaid'])
 end
 
 Then(/^an error page will be displayed$/) do

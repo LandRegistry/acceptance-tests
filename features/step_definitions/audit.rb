@@ -6,10 +6,6 @@ When(/^I login with correct credentials$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-When(/^I view the register$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
 Then(/^Audit is written$/) do
   pending # express the regexp above with the code you wish you had
 end

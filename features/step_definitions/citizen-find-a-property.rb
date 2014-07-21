@@ -7,6 +7,7 @@ Given(/^I have a registered property$/) do
   step "I enter a valid price paid"
   step "I enter 1 proprietor"
   step "I submit the title details"
+  sleep(1) # Really don't like sleeps, but using it as inserting too quickly before querying the data. Will fix later
 end
 
 Given(/^I am searching for that property$/) do
@@ -56,7 +57,7 @@ end
 
 Then(/^multiple results are displayed$/) do
   #Add the correct xpath here for the results
-  if (page.all('.//somexpathhere').count < 2) then
+  if (page.all(".//*[@id='ordered']/li").count < 2) then
     raise "Less than 2 result returned"
   end
 

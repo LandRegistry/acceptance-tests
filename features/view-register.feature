@@ -1,4 +1,4 @@
-@wip
+@wip @isThisNotADuplicate
 Feature: View Register
 
 Scenario: View public register details

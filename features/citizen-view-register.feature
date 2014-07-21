@@ -1,8 +1,7 @@
-@wip
-Feature: citizen view register
+Feature: Citizen view register
 
 Scenario: view register as citizen
-Given a register exists
+Given I have a registered property
 And I am a citizen
 When I view the register
 Then the address of property is displayed

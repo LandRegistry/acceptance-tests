@@ -58,7 +58,6 @@ And I enter 1 proprietor
 And I submit the title details
 Then an error page will be displayed
 
-
 Scenario: Trying to process a first registration with no proprietor (2)
 Given I have received an application for a first registration
 And I want to create a Register of Title
