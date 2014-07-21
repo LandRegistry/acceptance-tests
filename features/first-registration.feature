@@ -9,8 +9,8 @@ And I select class of Absolute
 And I enter a valid price paid
 And I enter 1 proprietor
 And I submit the title details
-Then the first registration is registered
-And I have received confirmation that it has been registered
+Then I have received confirmation that it has been registered
+And the first registration is registered
 
 Scenario: Processing Good Leasehold First Registration with 1 proprietor (4)
 Given I have received an application for a first registration
@@ -21,8 +21,8 @@ And I select class of Good
 And I enter a valid price paid
 And I enter 1 proprietor
 And I submit the title details
-Then the first registration is registered
-And I have received confirmation that it has been registered
+Then I have received confirmation that it has been registered
+And the first registration is registered
 
 Scenario: Processing possessory Freehold First Registration with 2 proprietors (5)
 Given I have received an application for a first registration
@@ -33,8 +33,8 @@ And I select class of Possessory
 And I enter a valid price paid
 And I enter 2 proprietors
 And I submit the title details
-Then the first registration is registered
-And I have received confirmation that it has been registered
+Then I have received confirmation that it has been registered
+And the first registration is registered
 
 Scenario: Processing Qualified Freehold First Registration with 1 proprietor and no price paid (6)
 Given I have received an application for a first registration
@@ -44,8 +44,8 @@ And I choose a tenure of Freehold
 And I select class of Qualified
 And I enter 1 proprietor
 And I submit the title details
-Then the first registration is registered
-And I have received confirmation that it has been registered
+Then I have received confirmation that it has been registered
+And the first registration is registered
 
 Scenario: Trying to process an Absolute Freehold First Registration with 1 proprietor and invalid price paid (7)
 Given I have received an application for a first registration

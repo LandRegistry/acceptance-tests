@@ -59,12 +59,12 @@ When(/^I submit the title details$/) do
 end
 
 Then(/^the first registration is registered$/) do
+  sleep(1) # Really don't like sleeps, but using it as inserting too quickly before querying the data. Will fix later
+  puts $PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber']
   visit($PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber'])
   if (!page.body.include? 'Details for the following title number') then
     raise "Could not find register details for titlenumber " + $data['titleNumber']
   end
-
-
 
 end
 
