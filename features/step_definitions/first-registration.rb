@@ -13,93 +13,126 @@ Given(/^I have received an application for a first registration$/) do
 end
 
 Given(/^I want to create a Register of Title$/) do
+  #This can be toggled for test purposes
   visit($CASEWORK_FRONTEND_URL)
+  #visit "http://lr-casework-frontend.herokuapp.com/registration"
 
   #temporarily enter a title number until it generates itself
-  fill_in('titleNumber', :with => $data['titleNumber'])
+  fill_in('title_number', :with => $data['titleNumber'])
 end
 
 When(/^I enter a Property Address$/) do
-  fill_in('houseNumber', :with => $data['propertyHouseNumber'])
+  fill_in('house_number', :with => $data['propertyHouseNumber'])
   fill_in('road', :with => $data['propertyRoad'])
   fill_in('town', :with => $data['propertyTown'])
   fill_in('postcode', :with => $data['propertyPostcode'])
 end
 
 When(/^I choose a tenure of Freehold$/) do
-  choose('freehold')
+  choose('property_tenure-0')
+end
+
+When(/^I choose a tenure of Leasehold$/) do
+  choose('property_tenure-1')
 end
 
 When(/^I select class of Absolute$/) do
-  choose('absolute')
+  choose('property_class-0')
 end
 
 When(/^I enter a valid price paid$/) do
-  fill_in('pricePaid', :with => $data['pricePaid'])
+  fill_in('price_paid', :with => $data['pricePaid'])
 end
 
 When(/^I enter 1 proprietor$/) do
-  fill_in('firstName1', :with => $data['forename1'])
+  fill_in('first_name1', :with => $data['forename1'])
   fill_in('surname1', :with => $data['surname1'])
 end
 
 When(/^I enter 2 proprietors$/) do
-  fill_in('firstName1', :with => $data['forename1'])
+  fill_in('first_name1', :with => $data['forename1'])
   fill_in('surname1', :with => $data['surname1'])
-  fill_in('firstName2', :with => $data['forename2'])
+  fill_in('first_name2', :with => $data['forename2'])
   fill_in('surname2', :with => $data['surname2'])
 end
 
 When(/^I submit the title details$/) do
-  click_button('Register')
+  click_button('submit')
 end
 
 Then(/^the first registration is registered$/) do
-  if (!page.body.include? 'Your Application was Successfully Registered') then
+  #This script needs to check the DB or property page shown
+  if (!page.body.include? 'Successfully created title with number') then
     raise "Expected registration message but was not present"
   end
 end
 
+Then(/^the user will be prompted again for a proprietor$/) do
+  if (!page.body.include? 'first_name1 - error This field is required') then
+    raise "There was no prompt for first_name1 to be re-entered"
+  end
+  if (!page.body.include? 'surname1 - error This field is required') then
+    raise "There was no prompt for surname1 to be re-entered"
+  end
+end
+
+Then(/^the user will be prompted again for required address fields$/) do
+  if (!page.body.include? 'town - error This field is required') then
+    raise "There was no prompt for town to be re-entered"
+  end
+  if (!page.body.include? 'road - error This field is required') then
+    raise "There was no prompt for road to be re-entered"
+  end
+  if (!page.body.include? 'postcode - error This field is required') then
+    raise "There was no prompt for postcode to be re-entered"
+  end
+  if (!page.body.include? 'house_number - error This field is required') then
+    raise "There was no prompt for house number to be re-entered"
+  end
+end
+
 When(/^I select class of Good$/) do
-  choose('good')
+  choose('property_class-1')
 end
 
 When(/^I select class of Possessory$/) do
-  choose('possessory')
+  choose('property_class-2')
 end
 
 When(/^I select class of Qualified$/) do
-  choose('qualified')
+  choose('property_class-3')
 end
 
 When(/^I enter an invalid price paid$/) do
   $invalidPricePaid = "@£$%^&*Broken10"
-  fill_in('pricePaid', :with => $invalidPricePaid)
+  fill_in('price_paid', :with => $invalidPricePaid)
 end
 
 Then(/^an error page will be displayed$/) do
-  if (!page.body.include? 'Some Error Message') then
+  if (!page.body.include? 'Creation of title with number') then
     raise "Expected error message but was not present"
   end
 end
 
 Then(/^a Title Number is displayed$/) do
-  if find(".//*[@id='titleNumber']").value == "" then
+  if find(".//*[@id='title_number']").value == "" then
     raise "There is no titleNumber!"
   end
 end
 
 Then(/^Title Number is formatted correctly$/) do
-  $titleNumber = find(".//*[@id='titleNumber']").text
+  $titleNumber = find(".//*[@id='title_number']").text
   puts $titleNumber[0,3]
   puts $titleNumber[4,7]
   #need to check format here
 end
 
 Then(/^I have received confirmation that it has been registered$/) do
-  pending # express the regexp above with the code you wish you had
+  if (!page.body.include? 'Successfully created title with number') then
+    raise "Expected registration message but was not present"
+  end
 end
 
 Then(/^Title Number is unique$/) do
-  pending # express the regexp above with the code you wish you had
+  #Is there a way to check this?
 end
