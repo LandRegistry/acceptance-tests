@@ -1,17 +1,46 @@
+require "net/http"
+
+
 Given(/^I have a registered property$/) do
-  step "I have received an application for a first registration"
-  step "I want to create a Register of Title"
-  step "I enter a Property Address"
-  step "I choose a tenure of Freehold"
-  step "I select class of Absolute"
-  step "I enter a valid price paid"
-  step "I enter 1 proprietor"
-  step "I submit the title details"
+
+  $regData = Hash.new()
+  $regData['title_number'] = titleNumber()
+  $regData['proprietors'] = Array.new()
+  $regData['proprietors'][0] = Hash.new()
+  $regData['proprietors'][0]['first_name'] = firstName()
+  $regData['proprietors'][0]['last_name'] = surname()
+  $regData['proprietors'][1] = Hash.new()
+  $regData['proprietors'][1]['first_name'] = firstName()
+  $regData['proprietors'][1]['last_name'] = surname()
+  $regData['property'] = Hash.new()
+  $regData['property']['address'] = Hash.new()
+  $regData['property']['address']['house_number'] = houseNumber()
+  $regData['property']['address']['road'] = road()
+  $regData['property']['address']['town'] = town()
+  $regData['property']['address']['postcode'] = postcode()
+  $regData['property']['tenure'] = 'freehold'
+  $regData['property']['class_of_title'] = 'absolute'
+
+  $regData['payment'] = Hash.new()
+  $regData['payment']['price_paid'] = pricePaid()
+  $regData['payment']['titles'] = Array.new()
+  $regData['payment']['titles'][0] = $regData['title_number']
+
+  http = Net::HTTP.new($MINT_API_DOMAIN.split(':')[0],($MINT_API_DOMAIN.split(':')[1] || '80'))
+
+  request = Net::HTTP::Post.new('/titles/' + $regData['title_number'],  initheader = {'Content-Type' =>'application/json'})
+  request.body = $regData.to_json
+  response = http.request(request)
+
+  if (response.code != '201') then
+    raise "Failed creating register: " + response.body
+  end
+
   sleep(1) # Really don't like sleeps, but using it as inserting too quickly before querying the data. Will fix later
 end
 
 Given(/^I am searching for that property$/) do
-  visit($SEARCH_FRONTEND_DOMAIN + '/search')
+  visit('http://' + $SEARCH_FRONTEND_DOMAIN + '/search')
 end
 
 Given(/^I am a citizen$/) do
@@ -33,21 +62,20 @@ Then(/^no results are found$/) do
 end
 
 When(/^I enter the exact Title Number$/) do
-  puts $data['titleNumber']
-  fill_in('search', :with => $data['titleNumber'])
+  fill_in('search', :with => $regData['title_number'])
 end
 
 Then(/^the citizen register is displayed$/) do
-  pending # express the regexp above with the code you wish you had
-  #if (!page.body.include? 'Some text saying you aren't logged in or something') then
-  #  raise "Expected an error message saying it is only a citizen register, however this wasn't present"
-  #end
+  # This step isn't ideal. I need something on the page to show it is the citizen registration.
+  if (page.body.include? $regData['proprietors'][0]['first_name']) then
+    raise "Expected to find no names on this register, this means it isn't the public register."
+  end
 end
 
 Given(/^at least two registers with the same Title Number beginning exists$/) do
   # Currently I am unsure how to do this as the developer aren't sure how it will happen.
-  step "I have a title number with a register"
-  step "I have a title number with a register"
+  step "I have a registered property"
+  step "I have a registered property"
   # For now I am calling this step twice to create 2 registers, I will then search for TEST*
 end
 
@@ -60,7 +88,6 @@ Then(/^multiple results are displayed$/) do
   if (page.all(".//*[@id='ordered']/li").count < 2) then
     raise "Less than 2 result returned"
   end
-
 end
 
 Then(/^results show address details$/) do
@@ -68,10 +95,6 @@ Then(/^results show address details$/) do
 end
 
 Then(/^results show Title Number$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^I have multiple search results$/) do
   pending # express the regexp above with the code you wish you had
 end
 

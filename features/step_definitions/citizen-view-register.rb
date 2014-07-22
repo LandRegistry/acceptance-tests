@@ -15,7 +15,7 @@ Then(/^Price Paid is displayed$/) do
 end
 
 When(/^I try to view a register that does not exist$/) do
-  visit($PROPERTY_FRONTEND_DOMAIN + '/property/XXXXXXXXX')
+  visit('http://' + $PROPERTY_FRONTEND_DOMAIN + '/property/XXXXXXXXX')
 end
 
 Then(/^an error will be displayed$/) do

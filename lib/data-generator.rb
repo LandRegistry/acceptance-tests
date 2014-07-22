@@ -10,10 +10,7 @@ end
 
 def firstName()
 
-	if (defined?($fname)).nil? # checks whether the array already exists
-		$fname = Array.new
-	end
-
+	$fname = Array.new
 	$fname << 'Adam'
 	$fname << 'Bob'
 	$fname << 'Charles'

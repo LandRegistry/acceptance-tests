@@ -26,7 +26,10 @@ And results show address details
 And results show Title Number
 
 Scenario: View register from multiple results for citizen
-Given I have multiple search results
+Given I am searching for that property
 And I am a citizen
-When I select a result
+And at least two registers with the same Title Number beginning exists
+When I enter a Title Number with the same prefix
+And I search
+And I select a result
 Then the citizen register is displayed

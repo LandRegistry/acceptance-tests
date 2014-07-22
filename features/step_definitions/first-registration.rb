@@ -13,8 +13,7 @@ Given(/^I have received an application for a first registration$/) do
 end
 
 Given(/^I want to create a Register of Title$/) do
-  puts $CASEWORK_FRONTEND_DOMAIN + '/registration'
-  visit($CASEWORK_FRONTEND_DOMAIN + '/registration')
+  visit('http://' + $CASEWORK_FRONTEND_DOMAIN + '/registration')
 
   #temporarily enter a title number until it generates itself
   fill_in('title_number', :with => $data['titleNumber'])
