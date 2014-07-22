@@ -1,17 +1,16 @@
 Then(/^the address of property is displayed$/) do
-  assert_selector(".//*[@id='content']/div/div/p[2]", text: /#{$data['propertyHouseNumber']}/)
-  assert_selector(".//*[@id='content']/div/div/p[3]", text: /#{$data['propertyRoad']}/)
-  assert_selector(".//*[@id='content']/div/div/p[4]", text: /#{$data['propertyTown']}/)
-  assert_selector(".//*[@id='content']/div/div/p[5]", text: /#{$data['propertyPostcode']}/)
+  assert_selector(".//*[@id='content']/div/div[1]/div[1]", text: /#{$regData['property']['address']['house_number']} #{$regData['property']['address']['road']}/)
+  assert_selector(".//*[@id='content']/div/div[1]/div[2]", text: /#{$regData['property']['address']['town']}/)
+  assert_selector(".//*[@id='content']/div/div[1]/div[3]", text: /#{$regData['property']['address']['postcode']}/)
 
 end
 
 Then(/^Title Number is displayed$/) do
-  assert_selector(".//*[@id='content']/div/div/p[1]", text: /#{$data['titleNumber']}/)
+  assert_selector(".//*[@id='content']/div/h1/span", text: /#{$regData['title_number']}/)
 end
 
 Then(/^Price Paid is displayed$/) do
-  assert_selector(".//*[@id='content']/div/div/p[6]", text: /#{$data['pricePaid']}/)
+  assert_selector(".//*[@id='price-paid']", text: /#{$regData['payment']['price_paid']}/)
 end
 
 When(/^I try to view a register that does not exist$/) do
@@ -19,12 +18,12 @@ When(/^I try to view a register that does not exist$/) do
 end
 
 Then(/^an error will be displayed$/) do
-  if (!page.body.include? 'exception') then
-    raise "Expected an exception on the page, none was present"
+  if (!page.body.include? 'Page Not Found') then
+    raise "Expected not to find the page"
   end
 end
 
 When(/^I view the register$/) do
-  puts $PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber']
-  visit($PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber'])
+  puts 'http://' + $PROPERTY_FRONTEND_DOMAIN + '/property/' + $regData['title_number']
+  visit('http://' +$PROPERTY_FRONTEND_DOMAIN + '/property/' + $regData['title_number'])
 end

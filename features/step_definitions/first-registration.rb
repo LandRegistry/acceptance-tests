@@ -1,6 +1,5 @@
 Given(/^I have received an application for a first registration$/) do
   $data = Hash.new()
-  $data['titleNumber'] = titleNumber()
   $data['propertyHouseNumber'] = houseNumber()
   $data['propertyRoad'] = road()
   $data['propertyTown'] = town()
@@ -15,10 +14,7 @@ end
 Given(/^I want to create a Register of Title$/) do
   visit('http://' + $CASEWORK_FRONTEND_DOMAIN + '/registration')
 
-  #temporarily enter a title number until it generates itself
-  #fill_in('title_number', :with => $data['titleNumber'])
-  $title_number = find(".//input[@id='title_number']", :visible => false).value
-  puts $title_number
+  $data['titleNumber'] = find(".//input[@id='title_number']", :visible => false).value
 end
 
 When(/^I enter a Property Address$/) do
@@ -30,6 +26,7 @@ end
 
 When(/^I choose a tenure of Freehold$/) do
   choose('property_tenure-0')
+  #find('.//*[@value="freehold" AND @name="property_tenure"]').click
 end
 
 When(/^I choose a tenure of Leasehold$/) do

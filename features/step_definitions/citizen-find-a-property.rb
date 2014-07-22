@@ -25,6 +25,10 @@ Given(/^I have a registered property$/) do
   $regData['payment']['titles'] = Array.new()
   $regData['payment']['titles'][0] = $regData['title_number']
 
+  puts $regData['title_number']
+
+  puts 'http://' + $MINT_API_DOMAIN.split(':')[0] + ':' + ($MINT_API_DOMAIN.split(':')[1] || '80') + '/titles/' + $regData['title_number']
+
   http = Net::HTTP.new($MINT_API_DOMAIN.split(':')[0],($MINT_API_DOMAIN.split(':')[1] || '80'))
   request = Net::HTTP::Post.new('/titles/' + $regData['title_number'],  initheader = {'Content-Type' =>'application/json'})
   request.body = $regData.to_json
@@ -66,6 +70,7 @@ When(/^I enter the exact Title Number$/) do
 end
 
 Then(/^the citizen register is displayed$/) do
+  puts $regData['title_number']
   # This step isn't ideal. I need something on the page to show it is the citizen registration.
   if (page.body.include? $regData['proprietors'][0]['first_name']) then
     raise "Expected to find no names on this register, this means it isn't the public register."
@@ -74,8 +79,11 @@ end
 
 Given(/^at least two registers with the same Title Number beginning exists$/) do
   # Currently I am unsure how to do this as the developer aren't sure how it will happen.
+  $results = Array[]
   step "I have a registered property"
+  $results[0] = $regData
   step "I have a registered property"
+  $results[1] = $regData
   # For now I am calling this step twice to create 2 registers, I will then search for TEST*
 end
 
@@ -91,13 +99,30 @@ Then(/^multiple results are displayed$/) do
 end
 
 Then(/^results show address details$/) do
-  pending # express the regexp above with the code you wish you had
+  for i in 0..$results.count
+    if (page.body.include? $results[i]['property']['address']['house_number']) then
+      raise "Expected to find house number #{$results[i]['property']['address']['house_number']}, but not present."
+    end
+    if (page.body.include? $results[i]['property']['address']['road']) then
+      raise "Expected to find road #{$results[i]['property']['address']['road']}, but not present."
+    end
+    if (page.body.include? $results[i]['property']['address']['town']) then
+      raise "Expected to find town #{$results[i]['property']['address']['town']}, but not present."
+    end
+    if (page.body.include? $results[i]['property']['address']['postcode']) then
+      raise "Expected to find postcode #{$results[i]['property']['address']['postcode']}, but not present."
+    end
+  end
 end
 
 Then(/^results show Title Number$/) do
-  pending # express the regexp above with the code you wish you had
+  for i in 0..$results.count
+    if (page.body.include? $results[i]['title_number']) then
+      raise "Expected to find title number #{$results[i]['title_number']}, but not present."
+    end
+  end
 end
 
 When(/^I select a result$/) do
-  pending # express the regexp above with the code you wish you had
+  click_link('Title Number: ' + $regData['title_number'])
 end
