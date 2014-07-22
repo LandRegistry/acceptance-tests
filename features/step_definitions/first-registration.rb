@@ -59,13 +59,7 @@ When(/^I submit the title details$/) do
 end
 
 Then(/^the first registration is registered$/) do
-  sleep(1) # Really don't like sleeps, but using it as inserting too quickly before querying the data. Will fix later
-  puts $PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber']
-  visit($PROPERTY_FRONTEND_DOMAIN + '/property/' + $data['titleNumber'])
-  if (!page.body.include? 'Details for the following title number') then
-    raise "Could not find register details for titlenumber " + $data['titleNumber']
-  end
-
+  wait_for_register_to_be_created($data['titleNumber'])
 end
 
 Then(/^the user will be prompted again for a proprietor$/) do
@@ -123,9 +117,6 @@ end
 
 Then(/^Title Number is formatted correctly$/) do
   $titleNumber = find(".//*[@id='title_number']").text
-  puts $titleNumber[0,3]
-  puts $titleNumber[4,7]
-  #need to check format here
 end
 
 Then(/^I have received confirmation that it has been registered$/) do

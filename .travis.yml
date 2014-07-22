@@ -9,6 +9,7 @@ env:
     - SEARCH_FRONTEND_DOMAIN=lr-property.herokuapp.com
     - PROPERTY_FRONTEND_DOMAIN=lr-property.herokuapp.com
     - MINT_API_DOMAIN=lr-mint.herokuapp.com
+    - PUBLICTITLE_API_DOMAIN=lr-public-titles-api.herokuapp.com
 before_install:
 - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 before_script:

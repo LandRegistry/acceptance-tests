@@ -20,14 +20,12 @@ Given(/^I have a registered property$/) do
   $regData['property']['address']['postcode'] = postcode()
   $regData['property']['tenure'] = 'freehold'
   $regData['property']['class_of_title'] = 'absolute'
-
   $regData['payment'] = Hash.new()
   $regData['payment']['price_paid'] = pricePaid()
   $regData['payment']['titles'] = Array.new()
   $regData['payment']['titles'][0] = $regData['title_number']
 
   http = Net::HTTP.new($MINT_API_DOMAIN.split(':')[0],($MINT_API_DOMAIN.split(':')[1] || '80'))
-
   request = Net::HTTP::Post.new('/titles/' + $regData['title_number'],  initheader = {'Content-Type' =>'application/json'})
   request.body = $regData.to_json
   response = http.request(request)
@@ -35,6 +33,8 @@ Given(/^I have a registered property$/) do
   if (response.code != '201') then
     raise "Failed creating register: " + response.body
   end
+
+  wait_for_register_to_be_created($regData['title_number'])
 
   sleep(1) # Really don't like sleeps, but using it as inserting too quickly before querying the data. Will fix later
 end
