@@ -5,15 +5,14 @@ def wait_for_register_to_be_created(title_no)
 
     puts 'http://' + $PUBLICTITLE_API_DOMAIN.split(':')[0] + ':' + ($PUBLICTITLE_API_DOMAIN.split(':')[1] || '80') + '/titles/' + title_no
 
-
     http = Net::HTTP.new($PUBLICTITLE_API_DOMAIN.split(':')[0],($PUBLICTITLE_API_DOMAIN.split(':')[1] || '80'))
     request = Net::HTTP::Get.new('/titles/' + title_no,  initheader = {'Content-Type' =>'application/json'})
-    request.body = $regData.to_json
+    #request.body = $regData.to_json
     response = http.request(request)
 
-    $json_response = JSON.parse(response.body);
+    json_response = JSON.parse(response.body);
 
-    if ((response.code != '404') && ($json_response['message'].nil?)) then
+    if ((response.code != '404') && (json_response['message'].nil?)) then
         found = true
     end
 
@@ -24,4 +23,17 @@ def wait_for_register_to_be_created(title_no)
   if (found == false) then
     raise "No records found for title " + title_no
   end
+end
+
+def get_public_register_by_title(title_no)
+
+  puts 'http://' + $PUBLICTITLE_API_DOMAIN.split(':')[0] + ':' + ($PUBLICTITLE_API_DOMAIN.split(':')[1] || '80') + '/titles/' + title_no
+
+  http = Net::HTTP.new($PUBLICTITLE_API_DOMAIN.split(':')[0],($PUBLICTITLE_API_DOMAIN.split(':')[1] || '80'))
+  request = Net::HTTP::Get.new('/titles/' + title_no,  initheader = {'Content-Type' =>'application/json'})
+  request.body = $regData.to_json
+  response = http.request(request)
+
+  json_response = JSON.parse(response.body);
+
 end

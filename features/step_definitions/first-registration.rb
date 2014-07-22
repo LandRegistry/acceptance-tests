@@ -14,7 +14,7 @@ end
 Given(/^I want to create a Register of Title$/) do
   visit('http://' + $CASEWORK_FRONTEND_DOMAIN + '/registration')
 
-  $data['titleNumber'] = find(".//input[@id='title_number']", :visible => false).value
+  $data['titleNumber'] = first(".//input[@id='title_number']", :visible => false).value
 end
 
 When(/^I enter a Property Address$/) do
@@ -109,13 +109,24 @@ Then(/^an error page will be displayed$/) do
 end
 
 Then(/^a Title Number is displayed$/) do
-  if find(".//*[@id='title_number']").value == "" then
+  if first(".//*[@id='title_number']", :visible => false).value == "" then
     raise "There is no titleNumber!"
   end
 end
 
 Then(/^Title Number is formatted correctly$/) do
-  $titleNumber = find(".//*[@id='title_number']").text
+  titleNumber = first(".//*[@id='title_number']", :visible => false).value
+  puts titleNumber
+
+  if (titleNumber[0,4] != 'TEST') then
+    raise "Title does not have a prefix of TEST"
+  end
+
+  if (titleNumber[4,titleNumber.size - 1] != titleNumber[4,titleNumber.size - 1].to_i.to_s) then
+    raise "The title number is not numberic"
+  end
+
+
 end
 
 Then(/^I have received confirmation that it has been registered$/) do
@@ -125,10 +136,10 @@ Then(/^I have received confirmation that it has been registered$/) do
 end
 
 Then(/^Title Number is unique$/) do
-  step "I am searching for that property"
-  step "I enter the exact Title Number"
-  step "I search"
-  if (page.all(".//*[@id='ordered']/li").count != 1) then
-    raise "Expected only 1 result"
+
+  title_data = get_public_register_by_title($data['titleNumber'])
+
+  if (title_data['message'].nil?) then
+    raise "Expected message informing title number didn't exist"
   end
 end
