@@ -115,7 +115,7 @@ Then(/^a Title Number is displayed$/) do
 end
 
 Then(/^Title Number is formatted correctly$/) do
-  titleNumber = first(".//*[@id='title_number']", :visible => false).value
+  titleNumber = find(".//*[@id='title_number']", :visible => false).value
   puts titleNumber
 
   if (titleNumber[0,4] != 'TEST') then
