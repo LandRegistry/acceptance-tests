@@ -17,7 +17,7 @@ Given(/^I want to create a Register of Title$/) do
 
   #temporarily enter a title number until it generates itself
   #fill_in('title_number', :with => $data['titleNumber'])
-  $title_number = find(".//input[@id='title_number']", :visible => false).value
+  $title_number = find(".//input[@id='title_number'][@hidden='true']", :visible => false).value
   puts $title_number
 end
 
@@ -29,15 +29,15 @@ When(/^I enter a Property Address$/) do
 end
 
 When(/^I choose a tenure of Freehold$/) do
-  choose('property_tenure-0')
+  choose('freehold')
 end
 
 When(/^I choose a tenure of Leasehold$/) do
-  choose('property_tenure-1')
+  choose('leasehold')
 end
 
 When(/^I select class of Absolute$/) do
-  choose('property_class-0')
+  choose('absolute')
 end
 
 When(/^I enter a valid price paid$/) do
@@ -65,39 +65,39 @@ Then(/^the first registration is registered$/) do
 end
 
 Then(/^the user will be prompted again for a proprietor$/) do
-  if (!page.body.include? 'first_name1 - error This field is required') then
+  if assert_selector(".//*[@id='error_first_name1']", text: /This field is required./) then
     raise "There was no prompt for first_name1 to be re-entered"
   end
-  if (!page.body.include? 'surname1 - error This field is required') then
+  if assert_selector(".//*[@id='error_surname1']", text: /This field is required./) then
     raise "There was no prompt for surname1 to be re-entered"
   end
 end
 
 Then(/^the user will be prompted again for required address fields$/) do
-  if (!page.body.include? 'town - error This field is required') then
+  if assert_selector(".//*[@id='error_town']", text: /This field is required./) then
     raise "There was no prompt for town to be re-entered"
   end
-  if (!page.body.include? 'road - error This field is required') then
+  if assert_selector(".//*[@id='error_road']", text: /This field is required./) then
     raise "There was no prompt for road to be re-entered"
   end
-  if (!page.body.include? 'postcode - error This field is required') then
+  if assert_selector(".//*[@id='error_postcode']", text: /This field is required./) then
     raise "There was no prompt for postcode to be re-entered"
   end
-  if (!page.body.include? 'house_number - error This field is required') then
+  if assert_selector(".//*[@id='error_house_number']", text: /This field is required./) then
     raise "There was no prompt for house number to be re-entered"
   end
 end
 
 When(/^I select class of Good$/) do
-  choose('property_class-1')
+  choose('good')
 end
 
 When(/^I select class of Possessory$/) do
-  choose('property_class-2')
+  choose('possessory')
 end
 
 When(/^I select class of Qualified$/) do
-  choose('property_class-3')
+  choose('qualified')
 end
 
 When(/^I enter an invalid price paid$/) do
