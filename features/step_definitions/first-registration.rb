@@ -16,7 +16,9 @@ Given(/^I want to create a Register of Title$/) do
   visit('http://' + $CASEWORK_FRONTEND_DOMAIN + '/registration')
 
   #temporarily enter a title number until it generates itself
-  fill_in('title_number', :with => $data['titleNumber'])
+  #fill_in('title_number', :with => $data['titleNumber'])
+  $title_number = find(".//input[@id='title_number']", :visible => false).value
+  puts $title_number
 end
 
 When(/^I enter a Property Address$/) do
