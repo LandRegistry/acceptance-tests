@@ -32,7 +32,7 @@ bundle install
 To run all the tests:
 
 ```
-cucumber
+cucumber --tags ~@wip
 ```
 
 Or to run a specific feature:
