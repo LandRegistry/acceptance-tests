@@ -62,27 +62,15 @@ Then(/^the first registration is registered$/) do
 end
 
 Then(/^the user will be prompted again for a proprietor$/) do
-  if assert_selector(".//*[@id='error_first_name1']", text: /This field is required./) then
-    raise "There was no prompt for first_name1 to be re-entered"
-  end
-  if assert_selector(".//*[@id='error_surname1']", text: /This field is required./) then
-    raise "There was no prompt for surname1 to be re-entered"
-  end
+  assert_selector(".//*[@id='error_first_name1']", text: /This field is required./)
+  assert_selector(".//*[@id='error_surname1']", text: /This field is required./)
 end
 
 Then(/^the user will be prompted again for required address fields$/) do
-  if assert_selector(".//*[@id='error_town']", text: /This field is required./) then
-    raise "There was no prompt for town to be re-entered"
-  end
-  if assert_selector(".//*[@id='error_road']", text: /This field is required./) then
-    raise "There was no prompt for road to be re-entered"
-  end
-  if assert_selector(".//*[@id='error_postcode']", text: /This field is required./) then
-    raise "There was no prompt for postcode to be re-entered"
-  end
-  if assert_selector(".//*[@id='error_house_number']", text: /This field is required./) then
-    raise "There was no prompt for house number to be re-entered"
-  end
+  assert_selector(".//*[@id='error_town']", text: /This field is required./)
+  assert_selector(".//*[@id='error_road']", text: /This field is required./)
+  assert_selector(".//*[@id='error_postcode']", text: /This field is required./)
+  assert_selector(".//*[@id='error_house_number']", text: /This field is required./)
 end
 
 When(/^I select class of Good$/) do
@@ -102,10 +90,9 @@ When(/^I enter an invalid price paid$/) do
   fill_in('price_paid', :with => $data['pricePaid'])
 end
 
-Then(/^an error page will be displayed$/) do
-  if (!page.body.include? 'Creation of title with number') then
-    raise "Expected error message but was not present"
-  end
+Then(/^an price paid error page will be displayed$/) do
+  assert_selector(".//*[@id='error_price_paid']", text: /Not a valid decimal value/)
+  assert_selector(".//*[@id='error_price_paid']", text: /please enter a positive number/)
 end
 
 Then(/^a Title Number is displayed$/) do
@@ -130,7 +117,7 @@ Then(/^Title Number is formatted correctly$/) do
 end
 
 Then(/^I have received confirmation that it has been registered$/) do
-  if (!page.body.include? 'Successfully created title with number') then
+  if (!page.body.include? 'New title created:') then
     raise "Expected registration message but was not present"
   end
 end
