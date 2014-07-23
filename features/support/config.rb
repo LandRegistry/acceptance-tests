@@ -7,3 +7,6 @@ Capybara.app_host = 'http://localhost:4567' # change url
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, :inspector => true)
 end
+
+$http_auth_name = ''
+$http_auth_password = ''

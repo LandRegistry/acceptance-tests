@@ -1,9 +1,12 @@
 Given(/^I have login credentials$/) do
-  pending # express the regexp above with the code you wish you had
+  $userdetails['email'] = 'landowner@mail.com'
+  $userdetails['password'] = 'password'
 end
 
 When(/^I login with correct credentials$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in('email', :with => $userdetails['email'])
+  fill_in('password', :with => $userdetails['password'])
+  click_button('Login')
 end
 
 Then(/^Audit is written$/) do

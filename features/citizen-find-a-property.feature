@@ -15,6 +15,7 @@ When I enter the exact Title Number
 And I search
 Then the citizen register is displayed
 
+@wip
 Scenario: Multiple Title Number match for citizen
 Given I am searching for that property
 And I am a citizen
@@ -25,6 +26,7 @@ Then multiple results are displayed
 And results show address details
 And results show Title Number
 
+@wip
 Scenario: View register from multiple results for citizen
 Given I am searching for that property
 And I am a citizen

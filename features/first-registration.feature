@@ -36,6 +36,7 @@ And I submit the title details
 Then I have received confirmation that it has been registered
 And the first registration is registered
 
+@removed
 Scenario: Processing Qualified Freehold First Registration with 1 proprietor and no price paid (6)
 Given I have received an application for a first registration
 And I want to create a Register of Title

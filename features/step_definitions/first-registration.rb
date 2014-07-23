@@ -12,7 +12,7 @@ Given(/^I have received an application for a first registration$/) do
 end
 
 Given(/^I want to create a Register of Title$/) do
-  visit('http://' + $CASEWORK_FRONTEND_DOMAIN + '/registration')
+  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$CASEWORK_FRONTEND_DOMAIN}/registration")
 
   $data['titleNumber'] = find(".//input[@id='title_number']", :visible => false).value
 
@@ -91,8 +91,9 @@ When(/^I enter an invalid price paid$/) do
 end
 
 Then(/^an price paid error page will be displayed$/) do
-  assert_selector(".//*[@id='error_price_paid']", text: /Not a valid decimal value/)
-  assert_selector(".//*[@id='error_price_paid']", text: /please enter a positive number/)
+  assert_selector(".//*[@id='error_price_paid']", text: /This field is required/)
+  #assert_selector(".//*[@id='error_price_paid']", text: /Not a valid decimal value/)
+  #assert_selector(".//*[@id='error_price_paid']", text: /please enter a positive number/)
 end
 
 Then(/^a Title Number is displayed$/) do
@@ -112,12 +113,14 @@ Then(/^Title Number is formatted correctly$/) do
   if (titleNumber[4,titleNumber.size - 1] != titleNumber[4,titleNumber.size - 1].to_i.to_s) then
     raise "The title number is not numberic"
   end
-
+if (titleNumber[4,titleNumber.size - 1] != titleNumber[4,titleNumber.size - 1].to_i.to_s) then
+  raise "The title number is not numberic"
+end
 
 end
 
 Then(/^I have received confirmation that it has been registered$/) do
-  if (!page.body.include? 'New title created:') then
+  if (!page.body.include? 'New title created') then
     raise "Expected registration message but was not present"
   end
 end
@@ -126,7 +129,7 @@ Then(/^Title Number is unique$/) do
 
   title_data = get_public_register_by_title($data['titleNumber'])
 
-  if (title_data['message'].nil?) then
+  if (!title_data['message'].nil?) then
     raise "Expected message informing title number didn't exist"
   end
 end
