@@ -118,6 +118,7 @@ Then(/^Title Number is formatted correctly$/) do
   if (titleNumber[4,titleNumber.size - 1].to_i < 1) then
     raise "The number is less than 0"
   end
+
   if (titleNumber[4,titleNumber.size - 1].to_i > 99999) then
     raise "The number is greater than 99999"
   end
@@ -137,4 +138,8 @@ Then(/^Title Number is unique$/) do
   if (title_data['results'].length > 0) then
     raise "Expected message informing title number didn't exist"
   end
+end
+
+When(/^I enter a valid title extent$/) do
+  fill_in('extent', :with => genenerate_title_extent())
 end
