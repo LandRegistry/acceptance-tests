@@ -12,7 +12,7 @@ Given(/^I have received an application for a first registration$/) do
 end
 
 Given(/^I want to create a Register of Title$/) do
-puts "http://#{$http_auth_name}:#{$http_auth_password}@#{$CASEWORK_FRONTEND_DOMAIN}/registration"
+  puts "http://#{$http_auth_name}:#{$http_auth_password}@#{$CASEWORK_FRONTEND_DOMAIN}/registration"
   visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$CASEWORK_FRONTEND_DOMAIN}/registration")
 
   $data['titleNumber'] = find(".//input[@id='title_number']", :visible => false).value
@@ -114,9 +114,13 @@ Then(/^Title Number is formatted correctly$/) do
   if (titleNumber[4,titleNumber.size - 1] != titleNumber[4,titleNumber.size - 1].to_i.to_s) then
     raise "The title number is not numberic"
   end
-if (titleNumber[4,titleNumber.size - 1] != titleNumber[4,titleNumber.size - 1].to_i.to_s) then
-  raise "The title number is not numberic"
-end
+
+  if (titleNumber[4,titleNumber.size - 1].to_i < 1) then
+    raise "The number is less than 0"
+  end
+  if (titleNumber[4,titleNumber.size - 1].to_i > 99999) then
+    raise "The number is greater than 99999"
+  end
 
 end
 
@@ -130,7 +134,7 @@ Then(/^Title Number is unique$/) do
 
   title_data = get_public_register_by_title($data['titleNumber'])
 
-  if (!title_data['message'].nil?) then
+  if (title_data['results'].length > 0) then
     raise "Expected message informing title number didn't exist"
   end
 end
