@@ -1,15 +1,3 @@
-When(/^I login with incorrect username$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I fail to login$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-When(/^I login with incorrect password$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
 Then(/^Tenure is displayed$/) do
   pending # express the regexp above with the code you wish you had
 end
@@ -20,4 +8,9 @@ end
 
 Then(/^proprietors are displayed$/) do
   pending # express the regexp above with the code you wish you had
+end
+
+When(/^I view the private register$/) do
+  puts "http://#{$http_auth_name}:#{$http_auth_password}@#{$PRIVATE_PROPERTY_FRONTEND_DOMAIN}"
+  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$PRIVATE_PROPERTY_FRONTEND_DOMAIN}")
 end

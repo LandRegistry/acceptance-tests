@@ -26,5 +26,6 @@ Then(/^an error will be displayed$/) do
 end
 
 When(/^I view the register$/) do
+  puts "http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/property/#{$regData['title_number']}"
   visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/property/#{$regData['title_number']}")
 end
