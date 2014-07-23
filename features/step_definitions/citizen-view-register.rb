@@ -1,4 +1,6 @@
 Then(/^the address of property is displayed$/) do
+
+  
   assert_selector(".//*[@id='content']/div[2]/div[1]/div[1]", text: /#{$regData['property']['address']['house_number']}/)
   assert_selector(".//*[@id='content']/div[2]/div[1]/div[1]", text: /#{$regData['property']['address']['road']}/)
 

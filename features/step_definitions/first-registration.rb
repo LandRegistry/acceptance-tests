@@ -132,11 +132,8 @@ Then(/^I have received confirmation that it has been registered$/) do
 end
 
 Then(/^Title Number is unique$/) do
-
-  title_data = get_public_register_by_title($data['titleNumber'])
-
-  if (title_data['results'].length > 0) then
-    raise "Expected message informing title number didn't exist"
+  if (does_title_exist($data['titleNumber']) == true) then
+    raise "A title with " + $data['titleNumber'] + " already exists"
   end
 end
 

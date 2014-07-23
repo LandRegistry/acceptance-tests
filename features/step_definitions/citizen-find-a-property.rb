@@ -50,7 +50,7 @@ Given(/^I have a registered property$/) do
 end
 
 Given(/^I am searching for that property$/) do
-  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$SEARCH_FRONTEND_DOMAIN}/search")
+  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/search")
 end
 
 Given(/^I am a citizen$/) do
