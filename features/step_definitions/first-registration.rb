@@ -136,7 +136,3 @@ Then(/^Title Number is unique$/) do
     raise "A title with " + $data['titleNumber'] + " already exists"
   end
 end
-
-When(/^I enter a valid title extent$/) do
-  fill_in('extent', :with => genenerate_title_extent())
-end
