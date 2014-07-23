@@ -14,7 +14,7 @@ def wait_for_register_to_be_created(title_no)
 
     json_response = JSON.parse(response.body);
 
-    if ((response.code != '404') && (json_response['message'].nil?)) then
+    if ((response.code != '404') && (json_response['results'].length > 0)) then
         found = true
     end
 
