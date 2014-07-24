@@ -65,7 +65,6 @@ And I want to create a Register of Title
 When I enter a Property Address
 And I choose a tenure of Freehold
 And I select class of Absolute
-And I enter a valid price paid
 And I submit the title details
 Then the user will be prompted again for a proprietor
 

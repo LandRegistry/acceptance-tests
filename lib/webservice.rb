@@ -24,16 +24,38 @@ def wait_for_register_to_be_created(title_no)
   end
 end
 
-def get_public_register_by_title(title_no)
+def get_register_by_title(title_no)
 
-  puts 'http://' + $LR_SEARCH_API_DOMAIN.split(':')[0] + ':' + ($LR_SEARCH_API_DOMAIN.split(':')[1] || '80') + '/titles/' + title_no
+  puts 'http://' + $SYSTEM_OF_RECORD_API_DOMAIN.split(':')[0] + ':' + ($SYSTEM_OF_RECORD_API_DOMAIN.split(':')[1] || '80') + '/titles/' + title_no
 
-  http = Net::HTTP.new($LR_SEARCH_API_DOMAIN.split(':')[0],($LR_SEARCH_API_DOMAIN.split(':')[1] || '80'))
+  http = Net::HTTP.new($SYSTEM_OF_RECORD_API_DOMAIN.split(':')[0],($SYSTEM_OF_RECORD_API_DOMAIN.split(':')[1] || '80'))
   request = Net::HTTP::Get.new('/search?query=' + title_no,  initheader = {'Content-Type' =>'application/json'})
   request.basic_auth $http_auth_name, $http_auth_password
   request.body = $regData.to_json
   response = http.request(request)
 
-  json_response = JSON.parse(response.body);
+  if (response.code == '404') then
+    raise "Title " + title_no + " does not exist"
+  else
+    json_response = JSON.parse(response.body);
+  end
+
+end
+
+def does_title_exist(title_no)
+
+  puts 'http://' + $SYSTEM_OF_RECORD_API_DOMAIN.split(':')[0] + ':' + ($SYSTEM_OF_RECORD_API_DOMAIN.split(':')[1] || '80') + '/titles/' + title_no
+
+  http = Net::HTTP.new($SYSTEM_OF_RECORD_API_DOMAIN.split(':')[0],($SYSTEM_OF_RECORD_API_DOMAIN.split(':')[1] || '80'))
+  request = Net::HTTP::Get.new('/search?query=' + title_no,  initheader = {'Content-Type' =>'application/json'})
+  request.basic_auth $http_auth_name, $http_auth_password
+  request.body = $regData.to_json
+  response = http.request(request)
+
+  if (response.code == '404') then
+    false
+  else
+    true
+  end
 
 end
