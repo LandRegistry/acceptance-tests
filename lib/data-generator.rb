@@ -194,3 +194,32 @@ def pricePaid()
 	$p_paid = rand(100000 .. 9999000)
 	return $p_paid
 end
+
+def genenerate_title_extent()
+  $N = rand(404431.0 .. 404439.99999)
+  $E = rand(369891.0 .. 369899.99999)
+
+  $topLeft = Array.new
+  $topLeft << $N.to_s
+  $topLeft << $E.to_s
+
+  #$N = $N + 0.5
+  #$E = $E + 0.5
+
+  $bottomRight = Array.new
+  $bottomRight << $N.to_s
+  $bottomRight << $E.to_s
+
+
+  $rectbegin = "{ \"type\": \"Polygon\",\"coordinates\": [[ "
+  $rectend = "]]}"
+  $rectangle = $rectbegin + "["+ $topLeft[0] + "," + $topLeft[1] + "], "
+  $rectangle = $rectangle + "["+ $bottomRight[0] + "," + $topLeft[1] + "], "
+  $rectangle = $rectangle + "["+ $bottomRight[0] + "," + $bottomRight[1] + "], "
+  $rectangle = $rectangle + "["+ $topLeft[0] + "," + $bottomRight[1] + "], "
+  $rectangle = $rectangle + "["+ $topLeft[0] + "," + $topLeft[1] + "] "
+  $rectangle = $rectangle + $rectend
+  puts $rectangle
+
+  return $rectangle
+end

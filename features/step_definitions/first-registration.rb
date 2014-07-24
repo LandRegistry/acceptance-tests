@@ -9,6 +9,8 @@ Given(/^I have received an application for a first registration$/) do
   $data['surname1'] = surname()
   $data['forename2'] = firstName()
   $data['surname2'] = surname()
+
+  genenerate_title_extent()
 end
 
 Given(/^I want to create a Register of Title$/) do
