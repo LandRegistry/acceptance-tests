@@ -1,6 +1,6 @@
 Then(/^the address of property is displayed$/) do
 
-  
+
   assert_selector(".//*[@id='content']/div[2]/div[1]/div[1]", text: /#{$regData['property']['address']['house_number']}/)
   assert_selector(".//*[@id='content']/div[2]/div[1]/div[1]", text: /#{$regData['property']['address']['road']}/)
 
@@ -18,6 +18,8 @@ Then(/^Price Paid is displayed$/) do
 end
 
 When(/^I try to view a register that does not exist$/) do
+  puts 'xxxxxxxxx'
+  puts "http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/property/XXXXXXXXX"
   visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/property/XXXXXXXXX")
 end
 

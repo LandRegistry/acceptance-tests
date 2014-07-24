@@ -7,9 +7,11 @@ env:
   global:
     - CASEWORK_FRONTEND_DOMAIN=lr-casework-frontend.herokuapp.com
     - SEARCH_FRONTEND_DOMAIN=lr-property.herokuapp.com
-    - PROPERTY_FRONTEND_DOMAIN=lr-property.herokuapp.com
+    - PROPERTY_FRONTEND_DOMAIN=lr-property-frontend.herokuapp.com
     - MINT_API_DOMAIN=lr-mint.herokuapp.com
     - PUBLICTITLE_API_DOMAIN=lr-public-titles-api.herokuapp.com
+    - LR_SEARCH_API_DOMAIN="lr-search-api.herokuapp.com"
+    
 before_install:
 - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 before_script:

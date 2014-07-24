@@ -25,20 +25,18 @@ Given(/^I have a registered property$/) do
   $regData['payment']['titles'] = Array.new()
   $regData['payment']['titles'][0] = $regData['title_number']
 
-  puts $regData['title_number']
+  puts 'Title number' + $regData['title_number']
 
   json_data = $regData.to_json.to_s.gsub!(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
   json_data = $regData.to_json
+  puts 'http://' + $MINT_API_DOMAIN + '/titles/' + $regData['title_number']
 
-  puts 'http://' + $MINT_API_DOMAIN.split(':')[0] + ':' + ($MINT_API_DOMAIN.split(':')[1] || '80') + '/titles/' + $regData['title_number']
-
-  http = Net::HTTP.new($MINT_API_DOMAIN.split(':')[0],($MINT_API_DOMAIN.split(':')[1] || '80'))
+  #http = Net::HTTP.new($MINT_API_DOMAIN.split(':')[0],($MINT_API_DOMAIN.split(':')[1] || '80'))
+  http = Net::HTTP.new($MINT_API_DOMAIN)
   request = Net::HTTP::Post.new('/titles/' + $regData['title_number'],  initheader = {'Content-Type' =>'application/json'})
   request.basic_auth $http_auth_name, $http_auth_password
   request.body = json_data
   response = http.request(request)
-
-  puts response.body
 
   if (response.code != '201') then
     raise "Failed creating register: " + response.body

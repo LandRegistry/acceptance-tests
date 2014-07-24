@@ -48,17 +48,6 @@ And I submit the title details
 Then I have received confirmation that it has been registered
 And the first registration is registered
 
-Scenario: Trying to process an Absolute Freehold First Registration with 1 proprietor and invalid price paid (7)
-Given I have received an application for a first registration
-And I want to create a Register of Title
-When I enter a Property Address
-And I choose a tenure of Freehold
-And I select class of Absolute
-And I enter an invalid price paid
-And I enter 1 proprietor
-And I submit the title details
-Then an price paid error page will be displayed
-
 Scenario: Trying to process a first registration with no proprietor (2)
 Given I have received an application for a first registration
 And I want to create a Register of Title

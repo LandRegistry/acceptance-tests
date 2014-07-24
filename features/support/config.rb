@@ -8,5 +8,5 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, :inspector => true)
 end
 
-$http_auth_name = ''
-$http_auth_password = ''
+$http_auth_name = 'landregistry'
+$http_auth_password = 'nottobeshared'

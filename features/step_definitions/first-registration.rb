@@ -12,11 +12,8 @@ Given(/^I have received an application for a first registration$/) do
 end
 
 Given(/^I want to create a Register of Title$/) do
-  puts "http://#{$http_auth_name}:#{$http_auth_password}@#{$CASEWORK_FRONTEND_DOMAIN}/registration"
   visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$CASEWORK_FRONTEND_DOMAIN}/registration")
-
   $data['titleNumber'] = find(".//input[@id='title_number']", :visible => false).value
-
 end
 
 When(/^I enter a Property Address$/) do
@@ -89,12 +86,6 @@ end
 When(/^I enter an invalid price paid$/) do
   $data['pricePaid'] = "@£$%^&*Broken10"
   fill_in('price_paid', :with => $data['pricePaid'])
-end
-
-Then(/^an price paid error page will be displayed$/) do
-  assert_selector(".//*[@id='error_price_paid']", text: /This field is required/)
-  #assert_selector(".//*[@id='error_price_paid']", text: /Not a valid decimal value/)
-  #assert_selector(".//*[@id='error_price_paid']", text: /please enter a positive number/)
 end
 
 Then(/^a Title Number is displayed$/) do
