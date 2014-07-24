@@ -199,27 +199,45 @@ def genenerate_title_extent()
   $N = rand(404431.0 .. 404439.99999)
   $E = rand(369891.0 .. 369899.99999)
 
+
   $topLeft = Array.new
   $topLeft << $N.to_s
   $topLeft << $E.to_s
 
-  #$N = $N + 0.5
-  #$E = $E + 0.5
+  $N = $N + 0.5
+  $E = $E + 0.5
 
   $bottomRight = Array.new
   $bottomRight << $N.to_s
   $bottomRight << $E.to_s
+$rectBegin = <<eos
+{
+  "type": "Feature",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::27700"
+    }
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates":
+        [[
+eos
 
-
-  $rectbegin = "{ \"type\": \"Polygon\",\"coordinates\": [[ "
-  $rectend = "]]}"
-  $rectangle = $rectbegin + "["+ $topLeft[0] + "," + $topLeft[1] + "], "
+$rectEnd = <<eos
+]]
+},
+"properties": {
+"Description": "Polygon"
+}
+}
+eos
+  $rectangle = $rectBegin + "["+ $topLeft[0] + "," + $topLeft[1] + "], "
   $rectangle = $rectangle + "["+ $bottomRight[0] + "," + $topLeft[1] + "], "
   $rectangle = $rectangle + "["+ $bottomRight[0] + "," + $bottomRight[1] + "], "
   $rectangle = $rectangle + "["+ $topLeft[0] + "," + $bottomRight[1] + "], "
   $rectangle = $rectangle + "["+ $topLeft[0] + "," + $topLeft[1] + "] "
-  $rectangle = $rectangle + $rectend
+  $rectangle = $rectangle + $rectEnd
   puts $rectangle
-
-  return $rectangle
 end
