@@ -12,7 +12,7 @@ Given(/^I have received an application for a first registration$/) do
 end
 
 Given(/^I want to create a Register of Title$/) do
-  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$CASEWORK_FRONTEND_DOMAIN}/registration")
+  visit("http://#{$CASEWORK_FRONTEND_DOMAIN}/registration")
   $data['titleNumber'] = find(".//input[@id='title_number']", :visible => false).value
 end
 

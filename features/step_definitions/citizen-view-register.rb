@@ -19,7 +19,7 @@ end
 
 When(/^I try to view a register that does not exist$/) do
   puts 'xxxxxxxxx'
-  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/property/XXXXXXXXX")
+  visit("http://#{$PROPERTY_FRONTEND_DOMAIN}/property/XXXXXXXXX")
 end
 
 Then(/^an error will be displayed$/) do
@@ -29,5 +29,5 @@ Then(/^an error will be displayed$/) do
 end
 
 When(/^I view the register$/) do
-  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/property/#{$regData['title_number']}")
+  visit("http://#{$PROPERTY_FRONTEND_DOMAIN}/property/#{$regData['title_number']}")
 end
