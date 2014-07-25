@@ -18,4 +18,5 @@ before_script:
   - bundle install
 script:
   - bundle exec cucumber --tags ~@wip
+  - ls
   - curl -X POST -H "Content-Type: application/json" -d @report.json http://lr-test-dashboard.herokuapp.com/import/cucumber
