@@ -16,11 +16,3 @@ end
 
 $http_auth_name = (ENV['HTTPAUTH_USERNAME'] || '')
 $http_auth_password = (ENV['HTTPAUTH_PASSWORD'] || '')
- 
-if page.driver.respond_to?(:basic_auth)
-  page.driver.basic_auth($http_auth_name, $http_auth_password)
-elsif page.driver.respond_to?(:basic_authorize)
-  page.driver.basic_authorize($http_auth_name, $http_auth_password)
-elsif page.driver.respond_to?(:browser) && page.driver.browser.respond_to?(:basic_authorize)
-  page.driver.browser.basic_authorize($http_auth_name, $http_auth_password)
-end
