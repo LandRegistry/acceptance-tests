@@ -8,5 +8,5 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, :inspector => true)
 end
 
-$http_auth_name = ''
-$http_auth_password = ''
+$http_auth_name = (ENV['HTTPAUTH_USERNAME'] || '')
+$http_auth_password = (ENV['HTTPAUTH_PASSWORD'] || '')

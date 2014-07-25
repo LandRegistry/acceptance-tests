@@ -1,23 +1,25 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.1.1
+- 2.1.1
 install: true
 env:
   global:
-    - CASEWORK_FRONTEND_DOMAIN=lr-casework-frontend.herokuapp.com
-    - SEARCH_FRONTEND_DOMAIN=lr-property.herokuapp.com
-    - PROPERTY_FRONTEND_DOMAIN=lr-property-frontend.herokuapp.com
-    - MINT_API_DOMAIN=lr-mint.herokuapp.com
-    - PUBLICTITLE_API_DOMAIN=lr-public-titles-api.herokuapp.com
-    - LR_SEARCH_API_DOMAIN="lr-search-api.herokuapp.com"
-
+  - CASEWORK_FRONTEND_DOMAIN=lr-casework-frontend.herokuapp.com
+  - SEARCH_FRONTEND_DOMAIN=lr-property.herokuapp.com
+  - PROPERTY_FRONTEND_DOMAIN=lr-property-frontend.herokuapp.com
+  - MINT_API_DOMAIN=lr-mint.herokuapp.com
+  - PUBLICTITLE_API_DOMAIN=lr-public-titles-api.herokuapp.com
+  - LR_SEARCH_API_DOMAIN="lr-search-api.herokuapp.com"
+  - secure: LJEocntktAZE0xFpYIfhMkxgTaxURhIhJqD+YRasVPli18ReBWfmdMoBSHDuuXfffGklBuCrVx3fntii7Pm5bgn9Xu9xNcZVYrod9oXn47qL0lVjYuzXsDI15NojYoD9pAO9KuJ2J4FlrhSsn/+XBBP2hBXT660t4bcOGeHOucw=
+  - secure: JLoDx5hajyrVgQ3FyzH2ut1VUSYnaR1uka7EmRpkp0R23o87fVbTX5nUQNFx7XodCYBBQ88Jmfejqcv3yp+hKdwe4z02RSCkxgTwvzRd0uQLsyaGG2PpwpDXLW1uDWNmoqfiyR+9kEPUt1ztB5VoEZr/CQXAYeYIDDjLIxn3A5A=
 before_install:
 - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 before_script:
-  - bundle install
+- bundle install
 script:
-  - bundle exec cucumber --tags ~@wip --tags ~@removed --format json --out report.json --format pretty
-  - ls
-  - pwd
-  - curl -X POST -H 'Content-Type:application/json' -d @/home/travis/build/LandRegistry/front-end-tests/report.json http://lr-test-dashboard.herokuapp.com/import/cucumber
+- bundle exec cucumber --tags ~@wip --tags ~@removed --format json --out report.json
+  --format pretty
+- ls
+- pwd
+- curl -X POST -H 'Content-Type:application/json' -d @/home/travis/build/LandRegistry/front-end-tests/report.json http://lr-test-dashboard.herokuapp.com/import/cucumber
