@@ -5,7 +5,9 @@ def wait_for_register_to_be_created(title_no)
   puts 'waiting for registration to be created'
   puts 'http://' + $LR_SEARCH_API_DOMAIN + '/search?query=' + title_no
 
-  http = Net::HTTP.new($LR_SEARCH_API_DOMAIN)
+
+  uri = URI.parse('http://' + $LR_SEARCH_API_DOMAIN)
+  http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Get.new('/search?query=' + title_no,  initheader = {'Content-Type' =>'application/json'})
   request.basic_auth $http_auth_name, $http_auth_password
   response = http.request(request)
@@ -30,7 +32,8 @@ def get_register_by_title(title_no)
 
   puts 'http://' + $SYSTEM_OF_RECORD_API_DOMAIN + '/search?query=' + title_no
 
-  http = Net::HTTP.new($SYSTEM_OF_RECORD_API_DOMAIN)
+  uri = URI.parse('http://' + $SYSTEM_OF_RECORD_API_DOMAIN)
+  http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Get.new('/search?query=' + title_no,  initheader = {'Content-Type' =>'application/json'})
   request.basic_auth $http_auth_name, $http_auth_password
   request.body = $regData.to_json
@@ -49,7 +52,8 @@ def does_title_exist(title_no)
   puts 'Does title exist'
   puts 'http://' + $SYSTEM_OF_RECORD_API_DOMAIN + '/search?query=' + title_no
 
-  http = Net::HTTP.new($SYSTEM_OF_RECORD_API_DOMAIN.split(':')[0],($SYSTEM_OF_RECORD_API_DOMAIN.split(':')[1] || '80'))
+  uri = URI.parse('http://' + $SYSTEM_OF_RECORD_API_DOMAIN)
+  http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Get.new('/search?query=' + title_no,  initheader = {'Content-Type' =>'application/json'})
   request.basic_auth $http_auth_name, $http_auth_password
   request.body = $regData.to_json
