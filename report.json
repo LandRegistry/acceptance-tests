@@ -1,0 +1,1091 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "aaaaCreate a Register from a received application",
+    "line": 1,
+    "description": "",
+    "id": "create-a-register-from-a-received-application",
+    "uri": "features/caseworker/first-registration.feature",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "Processing Absolute Freehold First Registration with 1 proprietor (3)",
+        "line": 3,
+        "description": "",
+        "id": "create-a-register-from-a-received-application;processing-absolute-freehold-first-registration-with-1-proprietor-(3)",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I have received an application for a first registration",
+            "line": 4,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1311000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I want to create a Register of Title",
+            "line": 5,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1447245000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I enter a Property Address",
+            "line": 6,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18931000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I choose a tenure of Freehold",
+            "line": 7,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11990000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I select class of Absolute",
+            "line": 8,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13452000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter a valid price paid",
+            "line": 9,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6870000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter 1 proprietor",
+            "line": 10,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9602000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I submit the title details",
+            "line": 11,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 125731000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I have received confirmation that it has been registered",
+            "line": 12,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:128"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4952000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the first registration is registered",
+            "line": 13,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2202376000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "Processing Good Leasehold First Registration with 1 proprietor (4)",
+        "line": 15,
+        "description": "",
+        "id": "create-a-register-from-a-received-application;processing-good-leasehold-first-registration-with-1-proprietor-(4)",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I have received an application for a first registration",
+            "line": 16,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 401000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I want to create a Register of Title",
+            "line": 17,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20717000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I enter a Property Address",
+            "line": 18,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22221000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I choose a tenure of Leasehold",
+            "line": 19,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10869000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I select class of Good",
+            "line": 20,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:77"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13483000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter a valid price paid",
+            "line": 21,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6593000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter 1 proprietor",
+            "line": 22,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9396000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I submit the title details",
+            "line": 23,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 61278000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I have received confirmation that it has been registered",
+            "line": 24,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:128"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2403000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the first registration is registered",
+            "line": 25,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4029427000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "Processing possessory Freehold First Registration with 2 proprietors (5)",
+        "line": 27,
+        "description": "",
+        "id": "create-a-register-from-a-received-application;processing-possessory-freehold-first-registration-with-2-proprietors-(5)",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I have received an application for a first registration",
+            "line": 28,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 381000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I want to create a Register of Title",
+            "line": 29,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19315000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I enter a Property Address",
+            "line": 30,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20668000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I choose a tenure of Freehold",
+            "line": 31,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11695000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I select class of Possessory",
+            "line": 32,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:81"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10714000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter a valid price paid",
+            "line": 33,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6224000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter 2 proprietors",
+            "line": 34,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26943000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I submit the title details",
+            "line": 35,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 47244000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I have received confirmation that it has been registered",
+            "line": 36,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:128"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2457000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the first registration is registered",
+            "line": 37,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4046342000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "Trying to process an Absolute Freehold First Registration with 1 proprietor and invalid price paid (7)",
+        "line": 51,
+        "description": "",
+        "id": "create-a-register-from-a-received-application;trying-to-process-an-absolute-freehold-first-registration-with-1-proprietor-and-invalid-price-paid-(7)",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I have received an application for a first registration",
+            "line": 52,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 391000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I want to create a Register of Title",
+            "line": 53,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19769000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I enter a Property Address",
+            "line": 54,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24497000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I choose a tenure of Freehold",
+            "line": 55,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11476000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I select class of Absolute",
+            "line": 56,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11204000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter an invalid price paid",
+            "line": 57,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:89"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5641000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter 1 proprietor",
+            "line": 58,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12249000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I submit the title details",
+            "line": 59,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25073000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "an price paid error page will be displayed",
+            "line": 60,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:94"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3442000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "Trying to process a first registration with no proprietor (2)",
+        "line": 62,
+        "description": "",
+        "id": "create-a-register-from-a-received-application;trying-to-process-a-first-registration-with-no-proprietor-(2)",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I have received an application for a first registration",
+            "line": 63,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 683000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I want to create a Register of Title",
+            "line": 64,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26198000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I enter a Property Address",
+            "line": 65,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18984000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I choose a tenure of Freehold",
+            "line": 66,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12612000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I select class of Absolute",
+            "line": 67,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11704000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I submit the title details",
+            "line": 68,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24461000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user will be prompted again for a proprietor",
+            "line": 69,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:65"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7441000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "Testing Title Number is generated and valid (1)",
+        "line": 71,
+        "description": "",
+        "id": "create-a-register-from-a-received-application;testing-title-number-is-generated-and-valid-(1)",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I have received an application for a first registration",
+            "line": 72,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 363000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I want to create a Register of Title",
+            "line": 73,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19538000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "a Title Number is displayed",
+            "line": 74,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:100"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1749000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "Title Number is formatted correctly",
+            "line": 75,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:106"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1713000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "Title Number is unique",
+            "line": 76,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:134"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1945000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "Trying to process a first registration with no address (8)",
+        "line": 78,
+        "description": "",
+        "id": "create-a-register-from-a-received-application;trying-to-process-a-first-registration-with-no-address-(8)",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I have received an application for a first registration",
+            "line": 79,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 619000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I want to create a Register of Title",
+            "line": 80,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25096000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I choose a tenure of Freehold",
+            "line": 81,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11135000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I select class of Absolute",
+            "line": 82,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12090000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter a valid price paid",
+            "line": 83,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5368000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I enter 1 proprietor",
+            "line": 84,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9441000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I submit the title details",
+            "line": 85,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22341000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user will be prompted again for required address fields",
+            "line": 86,
+            "match": {
+              "location": "features/step_definitions/first-registration.rb:70"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10562000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Feature",
+    "name": "Citizen find a property",
+    "line": 1,
+    "description": "",
+    "id": "citizen-find-a-property",
+    "uri": "features/citizen/citizen-find-a-property.feature",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "No Title Number match for citizen",
+        "line": 3,
+        "description": "",
+        "id": "citizen-find-a-property;no-title-number-match-for-citizen",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I am searching for that property",
+            "line": 4,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1053144000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I am a citizen",
+            "line": 5,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:56"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 354000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I enter an incorrect Title Number (non-matching)",
+            "line": 6,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13593000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I search",
+            "line": 7,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38740000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "no results are found",
+            "line": 8,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21742000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "Exact Title Number match for citizen",
+        "line": 10,
+        "description": "",
+        "id": "citizen-find-a-property;exact-title-number-match-for-citizen",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I have a registered property",
+            "line": 11,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3037800000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I am searching for that property",
+            "line": 12,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1092890000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I am a citizen",
+            "line": 13,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:56"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 300000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I enter the exact Title Number",
+            "line": 14,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10228000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I search",
+            "line": 15,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41894000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the citizen register is displayed",
+            "line": 16,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:78"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2815000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Feature",
+    "name": "aaaaaaaCitizen view register",
+    "line": 1,
+    "description": "",
+    "id": "citizen-view-register",
+    "uri": "features/citizen/citizen-view-register.feature",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "view register as citizen",
+        "line": 3,
+        "description": "",
+        "id": "citizen-view-register;view-register-as-citizen",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I have a registered property",
+            "line": 4,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:4"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "No records found for title TEST58066 (RuntimeError)\n./lib/webservice.rb:23:in `wait_for_register_to_be_created'\n./features/step_definitions/citizen-find-a-property.rb:47:in `/^I have a registered property$/'\nfeatures/citizen/citizen-view-register.feature:4:in `Given I have a registered property'",
+              "duration": 10106524000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I am a citizen",
+            "line": 5,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:56"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 379000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I view the register",
+            "line": 6,
+            "match": {
+              "location": "features/step_definitions/citizen-view-register.rb:30"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 491000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the address of property is displayed",
+            "line": 7,
+            "match": {
+              "location": "features/step_definitions/citizen-view-register.rb:1"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 448000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "Title Number is displayed",
+            "line": 8,
+            "match": {
+              "location": "features/step_definitions/citizen-view-register.rb:12"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 429000
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "Price Paid is displayed",
+            "line": 9,
+            "match": {
+              "location": "features/step_definitions/citizen-view-register.rb:16"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 302000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "name": "try to view register that does not exist",
+        "line": 11,
+        "description": "",
+        "id": "citizen-view-register;try-to-view-register-that-does-not-exist",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I am a citizen",
+            "line": 12,
+            "match": {
+              "location": "features/step_definitions/citizen-find-a-property.rb:56"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 307000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I try to view a register that does not exist",
+            "line": 13,
+            "match": {
+              "location": "features/step_definitions/citizen-view-register.rb:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1034405000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "an error will be displayed",
+            "line": 14,
+            "match": {
+              "location": "features/step_definitions/citizen-view-register.rb:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2884000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

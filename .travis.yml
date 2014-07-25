@@ -11,10 +11,11 @@ env:
     - MINT_API_DOMAIN=lr-mint.herokuapp.com
     - PUBLICTITLE_API_DOMAIN=lr-public-titles-api.herokuapp.com
     - LR_SEARCH_API_DOMAIN="lr-search-api.herokuapp.com"
-    
+
 before_install:
 - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 before_script:
   - bundle install
 script:
   - bundle exec cucumber --tags ~@wip
+  - curl -X POST -H "Content-Type: application/json" -d @report.json http://lr-test-dashboard.herokuapp.com/import/cucumber
