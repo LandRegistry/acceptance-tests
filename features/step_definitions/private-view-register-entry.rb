@@ -11,6 +11,5 @@ Then(/^proprietors are displayed$/) do
 end
 
 When(/^I view the private register$/) do
-  puts "http://#{$http_auth_name}:#{$http_auth_password}@#{$PRIVATE_PROPERTY_FRONTEND_DOMAIN}"
   visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$PRIVATE_PROPERTY_FRONTEND_DOMAIN}")
 end
