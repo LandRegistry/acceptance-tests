@@ -20,4 +20,4 @@ script:
   - bundle exec cucumber --tags ~@wip
   - ls
   - pwd
-  - curl -X POST -H "Content-Type: application/json" -d @report.json http://lr-test-dashboard.herokuapp.com/import/cucumber
+  - curl -X POST -H "Content-Type: application/json" -d @/home/travis/build/LandRegistry/front-end-tests/report.json http://lr-test-dashboard.herokuapp.com/import/cucumber
