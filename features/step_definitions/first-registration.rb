@@ -9,8 +9,6 @@ Given(/^I have received an application for a first registration$/) do
   $data['surname1'] = surname()
   $data['forename2'] = firstName()
   $data['surname2'] = surname()
-
-  genenerate_title_extent()
 end
 
 Given(/^I want to create a Register of Title$/) do
@@ -128,4 +126,8 @@ Then(/^Title Number is unique$/) do
   if (does_title_exist($data['titleNumber']) == true) then
     raise "A title with " + $data['titleNumber'] + " already exists"
   end
+end
+
+When(/^I enter a valid title extend$/) do
+  fill_in('extent', :with => genenerate_title_extent())
 end

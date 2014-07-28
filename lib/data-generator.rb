@@ -239,5 +239,5 @@ eos
   $rectangle = $rectangle + "["+ $topLeft[0] + "," + $bottomRight[1] + "], "
   $rectangle = $rectangle + "["+ $topLeft[0] + "," + $topLeft[1] + "] "
   $rectangle = $rectangle + $rectEnd
-  puts $rectangle
+  
 end

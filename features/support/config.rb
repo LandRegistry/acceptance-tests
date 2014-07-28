@@ -16,3 +16,5 @@ end
 
 $http_auth_name = (ENV['HTTPAUTH_USERNAME'] || '')
 $http_auth_password = (ENV['HTTPAUTH_PASSWORD'] || '')
+
+page.driver.resize(2560,2440)

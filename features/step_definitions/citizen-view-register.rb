@@ -20,7 +20,7 @@ Then(/^Title Number is displayed$/) do
 end
 
 Then(/^Price Paid is displayed$/) do
-  assert_selector(".//*[@id='price-paid']", text: /#{$regData['payment']['price_paid']}/)
+  assert_selector(".//*[@id='price-paid']", text: /#{$regData['payment']['price_paid'].to_s.reverse.gsub(/...(?=.)/,'\&,').reverse}/)
 end
 
 When(/^I try to view a register that does not exist$/) do
