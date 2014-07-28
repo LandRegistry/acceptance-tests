@@ -1,10 +1,16 @@
 Then(/^the address of property is displayed$/) do
-  assert_selector(".//*[@id='content']/div[2]/div[1]/div[1]", text: /#{$regData['property']['address']['house_number']}/)
-  assert_selector(".//*[@id='content']/div[2]/div[1]/div[1]", text: /#{$regData['property']['address']['road']}/)
-
-  assert_selector(".//*[@id='content']/div[2]/div[1]/div[2]", text: /#{$regData['property']['address']['town']}/)
-  assert_selector(".//*[@id='content']/div/div[1]/div[3]", text: /#{$regData['property']['address']['postcode']}/)
-
+  if (!page.body.include? $regData['property']['address']['house_number'].to_s) then
+    raise "House Number Missing"
+  end
+  if (!page.body.include? $regData['property']['address']['road']) then
+    raise "Road Missing"
+  end
+  if (!page.body.include? $regData['property']['address']['town']) then
+    raise "Town Missing"
+  end
+  if (!page.body.include? $regData['property']['address']['postcode']) then
+    raise "Postcode Missing"
+  end
 end
 
 Then(/^Title Number is displayed$/) do
