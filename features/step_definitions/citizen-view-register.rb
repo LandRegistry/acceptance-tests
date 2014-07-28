@@ -1,4 +1,5 @@
 Then(/^the address of property is displayed$/) do
+
   if (!page.body.include? $regData['property']['address']['house_number'].to_s) then
     raise "House Number Missing"
   end
@@ -11,6 +12,7 @@ Then(/^the address of property is displayed$/) do
   if (!page.body.include? $regData['property']['address']['postcode']) then
     raise "Postcode Missing"
   end
+
 end
 
 Then(/^Title Number is displayed$/) do
@@ -22,7 +24,8 @@ Then(/^Price Paid is displayed$/) do
 end
 
 When(/^I try to view a register that does not exist$/) do
-  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/property/XXXXXXXXX")
+  puts 'xxxxxxxxx'
+  visit("http://#{$PROPERTY_FRONTEND_DOMAIN}/property/XXXXXXXXX")
 end
 
 Then(/^an error will be displayed$/) do
@@ -32,6 +35,5 @@ Then(/^an error will be displayed$/) do
 end
 
 When(/^I view the register$/) do
-  puts "http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/property/#{$regData['title_number']}"
-  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$PROPERTY_FRONTEND_DOMAIN}/property/#{$regData['title_number']}")
+  visit("http://#{$PROPERTY_FRONTEND_DOMAIN}/property/#{$regData['title_number']}")
 end

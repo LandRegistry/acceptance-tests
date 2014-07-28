@@ -8,7 +8,6 @@ And I choose a tenure of Freehold
 And I select class of Absolute
 And I enter a valid price paid
 And I enter 1 proprietor
-And I enter a valid title extent
 And I submit the title details
 Then I have received confirmation that it has been registered
 And the first registration is registered
@@ -21,7 +20,6 @@ And I choose a tenure of Leasehold
 And I select class of Good
 And I enter a valid price paid
 And I enter 1 proprietor
-And I enter a valid title extent
 And I submit the title details
 Then I have received confirmation that it has been registered
 And the first registration is registered
@@ -34,12 +32,10 @@ And I choose a tenure of Freehold
 And I select class of Possessory
 And I enter a valid price paid
 And I enter 2 proprietors
-And I enter a valid title extent
 And I submit the title details
 Then I have received confirmation that it has been registered
 And the first registration is registered
 
-@removed
 Scenario: Processing Qualified Freehold First Registration with 1 proprietor and no price paid (6)
 Given I have received an application for a first registration
 And I want to create a Register of Title
@@ -48,21 +44,8 @@ And I choose a tenure of Freehold
 And I select class of Qualified
 And I enter 1 proprietor
 And I submit the title details
-And I enter a valid title extent
 Then I have received confirmation that it has been registered
 And the first registration is registered
-
-Scenario: Trying to process an Absolute Freehold First Registration with 1 proprietor and invalid price paid (7)
-Given I have received an application for a first registration
-And I want to create a Register of Title
-When I enter a Property Address
-And I choose a tenure of Freehold
-And I select class of Absolute
-And I enter an invalid price paid
-And I enter 1 proprietor
-And I enter a valid title extent
-And I submit the title details
-Then an price paid error page will be displayed
 
 Scenario: Trying to process a first registration with no proprietor (2)
 Given I have received an application for a first registration
@@ -70,8 +53,6 @@ And I want to create a Register of Title
 When I enter a Property Address
 And I choose a tenure of Freehold
 And I select class of Absolute
-And I enter a valid price paid
-And I enter a valid title extent
 And I submit the title details
 Then the user will be prompted again for a proprietor
 
@@ -89,6 +70,5 @@ When I choose a tenure of Freehold
 And I select class of Absolute
 And I enter a valid price paid
 And I enter 1 proprietor
-And I enter a valid title extent
 And I submit the title details
 Then the user will be prompted again for required address fields

@@ -14,11 +14,8 @@ Given(/^I have received an application for a first registration$/) do
 end
 
 Given(/^I want to create a Register of Title$/) do
-  puts "http://#{$http_auth_name}:#{$http_auth_password}@#{$CASEWORK_FRONTEND_DOMAIN}/registration"
-  visit("http://#{$http_auth_name}:#{$http_auth_password}@#{$CASEWORK_FRONTEND_DOMAIN}/registration")
-
+  visit("http://#{$CASEWORK_FRONTEND_DOMAIN}/registration")
   $data['titleNumber'] = find(".//input[@id='title_number']", :visible => false).value
-
 end
 
 When(/^I enter a Property Address$/) do
@@ -93,12 +90,6 @@ When(/^I enter an invalid price paid$/) do
   fill_in('price_paid', :with => $data['pricePaid'])
 end
 
-Then(/^an price paid error page will be displayed$/) do
-  assert_selector(".//*[@id='error_price_paid']", text: /This field is required/)
-  #assert_selector(".//*[@id='error_price_paid']", text: /Not a valid decimal value/)
-  #assert_selector(".//*[@id='error_price_paid']", text: /please enter a positive number/)
-end
-
 Then(/^a Title Number is displayed$/) do
   if first(".//*[@id='title_number']", :visible => false).value == "" then
     raise "There is no titleNumber!"
@@ -134,14 +125,7 @@ Then(/^I have received confirmation that it has been registered$/) do
 end
 
 Then(/^Title Number is unique$/) do
-
-  title_data = get_public_register_by_title($data['titleNumber'])
-
-  if (title_data['results'].length > 0) then
-    raise "Expected message informing title number didn't exist"
+  if (does_title_exist($data['titleNumber']) == true) then
+    raise "A title with " + $data['titleNumber'] + " already exists"
   end
-end
-
-When(/^I enter a valid title extent$/) do
-  fill_in('extent', :with => genenerate_title_extent())
 end
