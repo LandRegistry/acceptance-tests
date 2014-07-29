@@ -2,11 +2,12 @@ require 'json-schema'
 
 module LandRegistry
   class HttpClient
-    attr_reader :root_url, :api_secret, :responses, :hydrate_tokens
+    attr_reader :root_url, :api_username, :api_password, :responses, :hydrate_tokens
     attr_writer :running
 
-    def initialize(api_secret, accept_header)
-      @api_secret = api_secret
+    def initialize(api_username, api_password, accept_header)
+      @api_username = api_username
+      @api_password = api_password
       @accept_header = accept_header
 
       @responses = []
@@ -26,8 +27,8 @@ module LandRegistry
         },
         body: JSON.dump(body),
         basic_auth: {
-          username: @api_secret,
-          password: '',
+          username: @api_username,
+          password: @api_password
         }
       }
 
@@ -60,8 +61,8 @@ module LandRegistry
         },
         body: JSON.dump(body),
         basic_auth: {
-          username: @api_secret,
-          password: '',
+          username: @api_username,
+          password: @api_password
         }
       }
 
@@ -82,8 +83,8 @@ module LandRegistry
         },
         body: JSON.dump(body),
         basic_auth: {
-          username: @api_secret,
-          password: '',
+          username: @api_username,
+          password: @api_password
         }
       }
 
@@ -116,8 +117,8 @@ module LandRegistry
         },
         body: JSON.dump(body),
         basic_auth: {
-          username: @api_secret,
-          password: '',
+          username: @api_username,
+          password: @api_password
         }
       }
 

@@ -8,15 +8,13 @@ Given(/^app (.*?)$/) do |app|
     @app = $SYSTEM_OF_RECORD_API_DOMAIN
   when /^[Cc]asework.*/
     @app = $CASEWORK_FRONTEND_DOMAIN
-  when /^[Ss]earch [Ff]rontend.*/
-    @app = $SEARCH_FRONTEND_DOMAIN
   when /^[Pp]roperty.*/
     @app = $PROPERTY_FRONTEND_DOMAIN
   when /^[Mm]int.*/
     @app = $MINT_API_DOMAIN
-  when /^[Pp]ublic [Tt]itle.*/
+  when /^[Pp]ublic[- ]?[Tt]itle.*/
     @app = $PUBLICTITLE_API_DOMAIN
-  when /^[Ss]earch [Aa]pi.*/
+  when /^[Ss]earch[- ]?[Aa]pi.*/
     @app = $LR_SEARCH_API_DOMAIN
   else
     raise 'Invalid app ' + app 

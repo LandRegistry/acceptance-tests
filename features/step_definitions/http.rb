@@ -120,6 +120,6 @@ end
 # TODO: move?
 
 Before do |scenario|
-  @client = LandRegistry::HttpClient.new($api_secret, $accept_header)
+  @client = LandRegistry::HttpClient.new(ENV['HTTPAUTH_USERNAME'], ENV['HTTPAUTH_PASSWORD'], $accept_header)
   @client.running = scenario
 end
