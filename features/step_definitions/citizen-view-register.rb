@@ -6,11 +6,12 @@ Then(/^the address of property is displayed$/) do
 end
 
 Then(/^Title Number is displayed$/) do
-  assert_selector(".//*[@id='content']/div/h1/span", text: /#{$regData['title_number']}/)
+  assert_match(/#{$regData['title_number']}/i, page.body, 'Expected to see title number')
 end
 
 Then(/^Price Paid is displayed$/) do
-  assert_selector(".//*[@id='price-paid']", text: /#{$regData['payment']['price_paid'].to_s.reverse.gsub(/...(?=.)/,'\&,').reverse}/)
+  assert_match(/#{$regData['payment']['price_paid'].to_s.reverse.gsub(/...(?=.)/,'\&,').reverse}/i, page.body, 'Expected to see price paid')
+#  assert_selector(".//*[@id='price-paid']", text: /#{$regData['payment']['price_paid'].to_s.reverse.gsub(/...(?=.)/,'\&,').reverse}/)
 end
 
 When(/^I try to view a register that does not exist$/) do
