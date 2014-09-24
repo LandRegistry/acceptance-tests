@@ -20,23 +20,22 @@ def create_marriage_data(country, full_name)
 end
 
 def create_change_of_name_marriage_request(regData, marriage_data)
-  change_of_name = {}
-  change_of_name["application_type"] = "change-name-marriage"
-  change_of_name["title_number"]  = regData['title_number']
-  change_of_name["submitted_by"] = regData['proprietors'][0]['full_name']
 
-  change_of_name["request_details"] = {}
-  change_of_name["request_details"]["action"] = "change-name-marriage"
+   data = marriage_data
+   data['confirm'] = true
+   data['title'] = regData
+   data["request_details"] = Date.strptime(marriage_data['marriage_date'], "%d-%m-%Y").strftime("%s").to_i
 
-  dateOfMarriage = Date.strptime(marriage_data['marriage_date'], "%d-%m-%Y")
-
-  marriage_data['marriage_date'] = dateOfMarriage.strftime("%s").to_i
-
-  change_of_name["request_details"]["data"] = marriage_data.to_json.to_s
-
-  change_of_name["request_details"]["context"] = {}
-  change_of_name["request_details"]["context"]["session-id"] = "123456"
-  change_of_name["request_details"]["context"]["transaction-id"] = "ABCDEFG"
+   change_of_name = {}
+   change_of_name["application_type"] = "change-name-marriage"
+   change_of_name["title_number"]  = regData['title_number']
+   change_of_name["submitted_by"] = regData['proprietors'][0]['full_name']
+   change_of_name["request_details"] = {}
+   change_of_name["request_details"]["action"] = "change-name-marriage"
+   change_of_name["request_details"]["data"] = data.to_json
+   change_of_name["request_details"]["context"] = {}
+   change_of_name["request_details"]["context"]["session-id"] = "123456"
+   change_of_name["request_details"]["context"]["transaction-id"] = "ABCDEFG"
 
   uri = URI.parse($CASES_URL)
   http = Net::HTTP.new(uri.host, uri.port)
