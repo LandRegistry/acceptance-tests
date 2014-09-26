@@ -116,3 +116,14 @@ Scenario: Private Register with Title Extents
     | the map can't be zoomed       |
     | the map can't be moved        |
     | the polygons are over a map   |
+
+@wip
+Scenario: Private Register with History
+
+  Given I am a citizen
+  And I have private citizen login credentials
+  And I am the proprietor of a registered title
+  And amendments have been made to that title
+  When I view the full register of title
+  Then I should be able to see the history of the title
+  And the historical registers have a date and time displayed of when they were amended

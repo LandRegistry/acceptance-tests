@@ -100,18 +100,7 @@ def generic_register_data(table = nil)
 
   regData = generate_title_extent_information(regData, data_characteristics)
 
-  uri = URI.parse($MINT_API_DOMAIN)
-  http = Net::HTTP.new(uri.host, uri.port)
-  request = Net::HTTP::Post.new('/titles/' + regData['title_number'],  initheader = {'Content-Type' =>'application/json'})
-  request.basic_auth $http_auth_name, $http_auth_password
-  request.body = regData.to_json
-  response = http.request(request)
-
-  if (response.code != '201') then
-    raise "Failed creating register: " + response.body
-  end
-
-  wait_for_register_to_be_created(regData['title_number'])
+  submit_title(regData)
 
   ## Function Meta Data Generator
   if ($PERFROMANCETEST.nil?) then

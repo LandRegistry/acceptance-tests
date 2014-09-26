@@ -67,3 +67,15 @@ end
 Then(/^I have the option to edit the register$/) do
   assert_equal has_button?('Edit the register'), true, 'Expected Edit the register button to be on the page'
 end
+
+Given(/^amendments have been made to that title$/) do
+  # Make a change to the second person's name and resubmit, creating history
+  $regData['proprietors'][0]['full_name'] = fullName() + 's'
+  submit_title($regData)
+  wait_for_register_to_update_full_name($regData['title_number'], $regData['proprietors'][0]['full_name'])
+
+  # Make a change to the second person's name and resubmit, creating history
+  $regData['proprietors'][1]['full_name'] = fullName() + 'ss'
+  submit_title($regData)
+  wait_for_register_to_update_full_name($regData['title_number'], $regData['proprietors'][0]['full_name'])
+end
