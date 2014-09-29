@@ -19,40 +19,26 @@ Given(/^completed applications exist$/) do
 
   $completed_cases = []
 
-  #$regData['proprietors'][0]['full_name'] = $marriage_data['proprietor_new_full_name']
+  ## Require No 1
+
   $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'], $regData['title_number'])
-  puts 'old name: ' + $regData['proprietors'][0]['full_name']
-  puts 'new name: ' + $marriage_data['proprietor_new_full_name']
-
-
-
   $completed_cases << create_change_of_name_marriage_request($regData, $marriage_data)
   $completed_cases[0]['regdata'] = $regData
   $completed_cases[0]['marriage_data'] = $marriage_data
   sleep(2)
   complete_case($completed_cases[0]['case_id'])
-
   wait_for_register_to_update_full_name($regData['title_number'], $marriage_data['proprietor_new_full_name'])
 
-
+  ## Require No 2
+  sleep(2)
   title_no = $regData['title_number']
-
   $regData = get_register_details(title_no)
-
-
   $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'], $regData['title_number'])
-
-  puts 'old name: ' + $regData['proprietors'][0]['full_name']
-  puts 'new name: ' + $marriage_data['proprietor_new_full_name']
-
-
   $completed_cases << create_change_of_name_marriage_request($regData, $marriage_data)
   $completed_cases[1]['regdata'] = $regData
   $completed_cases[1]['marriage_data'] = $marriage_data
   sleep(2)
-
   complete_case($completed_cases[1]['case_id'])
-
   wait_for_register_to_update_full_name($regData['title_number'], $marriage_data['proprietor_new_full_name'])
 
 
