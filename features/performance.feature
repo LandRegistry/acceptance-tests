@@ -11,8 +11,7 @@ Scenario: Private Register with Title Extents
     | Create relationship token for buyers                                   | 2     |
     | Full register of title                                                 | 2     |
     | Processing Absolute Freehold First Registration with 1 proprietor (3)  | 2     |
-    | View Change of Name in work queue                                      | 2     |
-    | view register as new authenticated user                                | 2     |
+    | View Change of Name in work queue (no Checking)                        | 2     |
   And I run for 1 minute
   And I ramp up 1 user every 1 seconds
   When I run the performance test
@@ -25,5 +24,4 @@ Scenario: Private Register with Title Extents
     | Create relationship token for buyers                                   | 10      |
     | Full register of title                                                 | 10      |
     | Processing Absolute Freehold First Registration with 1 proprietor (3)  | 10      |
-    | View Change of Name in work queue                                      | 10      |
-    | view register as new authenticated user                                | 10      |
+    | View Change of Name in work queue (no Checking)                        | 10      |

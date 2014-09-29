@@ -1,4 +1,4 @@
-def create_marriage_data(country, full_name)
+def create_marriage_data(country, full_name, title_number)
   marriage_data = {}
   marriage_data['confirm'] = true
   marriage_data['proprietor_full_name'] = full_name
@@ -7,7 +7,7 @@ def create_marriage_data(country, full_name)
   marriage_data['application_type'] = 'change-name-marriage'
   marriage_data['marriage_country'] = country
   marriage_data['marriage_place'] = townName()
-  marriage_data['title_number'] = $regData['title_number']
+  marriage_data['title_number'] = title_number
   marriage_data['proprietor_full_name'] = full_name
   marriage_data['marriage_certificate_number'] = certificateNumber()
   marriage_data['marriage_date'] = dateInThePast().strftime("%d-%m-%Y")

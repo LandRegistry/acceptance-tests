@@ -12,46 +12,6 @@ Scenario: Citizen View public register
     | Property Address |
     | Price Paid       |
 
-Scenario: Citizen View public register without clauses and different lessee
-
-  Given I am a citizen
-  And a registered title with characteristics
-    | CHARACTERISTICS                               |
-    | leasehold                                     |
-    | has no lease clauses                          |
-    | has a lessee name different to the proprietor |
-  When I view the property details on gov.uk
-  Then I can see the following information displayed
-    | INFORMATION           |
-    | Date Of Lease         |
-    | Lease Term            |
-    | Lease Term Start Date |
-    | Lessor Name           |
-    | Lessee Name           |
-  And I cannot see the following information displayed
-    | INFORMATION           |
-    | Lease Clauses         |
-
-Scenario: Citizen View public register with clauses and lessee as proprietor
-
-  Given I am a citizen
-  And a registered title with characteristics
-    | CHARACTERISTICS                            |
-    | leasehold                                  |
-    | has lease clauses                          |
-    | has a lessee name matching the proprietor  |
-  When I view the property details on gov.uk
-  Then I can see the following information displayed
-    | INFORMATION           |
-    | Date Of Lease         |
-    | Lease Term            |
-    | Lease Term Start Date |
-    | Lessor Name           |
-    | Lease Clauses         |
-  And I cannot see the following information displayed
-    | INFORMATION           |
-    | Lessee Name           |
-
 Scenario: try to view register that does not exist
 
   Given I am a citizen

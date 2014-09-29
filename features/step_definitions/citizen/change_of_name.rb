@@ -1,13 +1,13 @@
 Given(/^a change of name by marriage application that requires reviewing by a caseworker$/) do
   step "a registered title with characteristics", ''
-  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'])
+  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'], $regData['title_number'])
   create_change_of_name_marriage_request($regData, $marriage_data)
   wait_for_case_to_exist($regData['title_number'])
 end
 
 Given(/^a change of name by marriage application that requires checking$/) do
   step "a registered title with characteristics", ''
-  $marriage_data = create_marriage_data('AU', $regData['proprietors'][0]['full_name'])
+  $marriage_data = create_marriage_data('AU', $regData['proprietors'][0]['full_name'], $regData['title_number'])
   create_change_of_name_marriage_request($regData, $marriage_data)
   wait_for_case_to_exist($regData['title_number'])
 end
@@ -15,7 +15,7 @@ end
 When(/^I provide details of my change of name by marriage$/) do
   validateChangeNameMarriageForm()
 
-  $marriage_data = create_marriage_data('United Kingdom', $regData['proprietors'][0]['full_name'])
+  $marriage_data = create_marriage_data('United Kingdom', $regData['proprietors'][0]['full_name'], $regData['title_number'])
 
   fill_in('proprietor_new_full_name', :with => $marriage_data['proprietor_new_full_name'])
   fill_in('partner_name', :with => $marriage_data['partner_name'])

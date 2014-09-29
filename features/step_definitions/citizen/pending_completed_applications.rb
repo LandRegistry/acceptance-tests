@@ -2,13 +2,13 @@ Given(/^pending applications exist$/) do
 
   $pending_cases = []
 
-  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'])
+  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'], $regData['title_number'])
   $pending_cases << create_change_of_name_marriage_request($regData, $marriage_data)
   $pending_cases[0]['regdata'] = $regData
   $pending_cases[0]['marriage_data'] = $marriage_data
 
   #$regData['proprietors'][0]['full_name'] = $marriage_data['proprietor_new_full_name']
-  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'])
+  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'], $regData['title_number'])
   $pending_cases << create_change_of_name_marriage_request($regData, $marriage_data)
   $pending_cases[1]['regdata'] = $regData
   $pending_cases[1]['marriage_data'] = $marriage_data
@@ -20,7 +20,7 @@ Given(/^completed applications exist$/) do
   $completed_cases = []
 
   #$regData['proprietors'][0]['full_name'] = $marriage_data['proprietor_new_full_name']
-  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'])
+  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'], $regData['title_number'])
   puts 'old name: ' + $regData['proprietors'][0]['full_name']
   puts 'new name: ' + $marriage_data['proprietor_new_full_name']
 
@@ -40,7 +40,7 @@ Given(/^completed applications exist$/) do
   $regData = get_register_details(title_no)
 
 
-  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'])
+  $marriage_data = create_marriage_data('GB', $regData['proprietors'][0]['full_name'], $regData['title_number'])
 
   puts 'old name: ' + $regData['proprietors'][0]['full_name']
   puts 'new name: ' + $marriage_data['proprietor_new_full_name']
