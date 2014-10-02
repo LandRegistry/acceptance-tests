@@ -1,4 +1,4 @@
-Feature: Citizen view full register of title (does not own property)
+Feature: Citizen view full register of title
 
 @performance_test_script
 Scenario: Full register of title
@@ -82,12 +82,19 @@ Scenario: Register of title with clauses and lessee as proprietor
     | Lessee Name           |
     | Lease Clauses         |
 
-Scenario: Proprietor can view full register of title
+Scenario: Proprietor can edit the register
 
   Given I am a citizen
   And I am the proprietor of a registered title
   When I view the full register of title
   Then I have the option to edit the register
+
+Scenario: Non proprietor cannot edit the register
+
+  Given I am a citizen
+  And a registered title
+  When I view the full register of title
+  Then I do not have the option to edit the register
 
 Scenario: Citizen can only view private register if logged in
 

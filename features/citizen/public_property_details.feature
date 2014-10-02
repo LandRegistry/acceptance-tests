@@ -11,12 +11,15 @@ Scenario: Citizen View public register
     | Title Number     |
     | Property Address |
     | Price Paid       |
+  And I have the option to view the full register
+
 
 Scenario: try to view register that does not exist
 
   Given I am a citizen
   When I try to view a property that does not exist
   Then an error is displayed
+  
 
 Scenario: Public Register with Title Extents
 

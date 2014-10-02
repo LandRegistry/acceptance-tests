@@ -99,7 +99,6 @@ def generic_register_data(table = nil)
   regData = generate_charge_information(regData, data_characteristics)
 
   regData = generate_title_extent_information(regData, data_characteristics)
-
   uri = URI.parse($MINT_API_DOMAIN)
   http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Post.new('/titles/' + regData['title_number'],  initheader = {'Content-Type' =>'application/json'})

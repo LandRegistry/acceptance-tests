@@ -15,3 +15,23 @@ end
 Then(/^I get a no results are found message$/) do
   assert_match('Sorry, no results have been found.', page.body, 'Expected an error message saying no results found, however this wasn\'t present')
 end
+
+Then(/^I have the option to view the property details$/) do
+  assert_equal getSearchResultForTitleNumber().has_link?("#{$regData['property']['address']['house_number']} #{$regData['property']['address']['road']}"), true, 'Expected a link to property'
+end
+
+When(/^I choose to view the property details$/) do
+  puts $regData['payment']['price_paid']
+  getSearchResultForTitleNumber().click_link("#{$regData['property']['address']['house_number']} #{$regData['property']['address']['road']}")
+end
+
+def getSearchResultForTitleNumber()
+  arr = Array.new
+  page.all(:xpath, ".//ul[@class='results-list']").each do |row|
+    if (row.text.include? $regData['title_number'])
+      arr << row
+    end
+  end
+  assert_equal(arr.length, 1, "There are #{arr.length} search results for" + $regData['title_number'])
+  return arr[0]
+end

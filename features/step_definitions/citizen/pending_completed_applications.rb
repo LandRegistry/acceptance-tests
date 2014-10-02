@@ -57,12 +57,6 @@ Then(/^the correct data is displayed$/) do
 
         assert_match($pending_cases[i]["title_number"], page.body, 'Expected to find '+ $pending_cases[i]["title_number"] +' displayed on the screen')
         assert_match($pending_cases[i]["submitted_by"], page.body, 'Expected to find '+ $pending_cases[i]["submitted_by"] +' displayed on the screen')
-        assert_match($pending_cases[i]["marriage_data"]["proprietor_full_name"], page.body, 'Expected to find '+ $pending_cases[i]["marriage_data"]["proprietor_full_name"] +' displayed on the screen')
-        assert_match($pending_cases[i]["marriage_data"]["proprietor_new_full_name"], page.body, 'Expected to find '+ $pending_cases[i]["marriage_data"]["proprietor_new_full_name"] +' displayed on the screen')
-        assert_match($pending_cases[i]["marriage_data"]['marriage_date'].to_s, page.body, 'Expected to find ' + $pending_cases[i]["marriage_data"]["marriage_date"].to_s + ' displayed on the screen')
-        assert_match($pending_cases[i]["marriage_data"]["marriage_certificate_number"].to_s, page.body, 'Expected to find '+ ($pending_cases[i]["marriage_data"]["marriage_certificate_number"].to_s) +' displayed on the screen')
-        assert_match($pending_cases[i]["marriage_data"]["marriage_place"], page.body, 'Expected to find '+ $pending_cases[i]["marriage_data"]["marriage_place"] +' displayed on the screen')
-        assert_match($pending_cases[i]["marriage_data"]["marriage_country"], page.body, 'Expected to find '+ $pending_cases[i]["marriage_data"]["marriage_country"] +' displayed on the screen')
 
       end # of $pending_cases loop
 

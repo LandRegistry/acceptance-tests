@@ -10,6 +10,17 @@ Scenario: A user can find a property and view its details
     | INFORMATION      |
     | Title Number     |
     | Property Address |
+  And I have the option to view the property details
+
+  When I choose to view the property details
+  Then I can see the following information displayed
+    | INFORMATION      |
+    | Title Number     |
+    | Property Address |
+    | Tenure           |
+    | Class Of Title   |
+    | Price Paid       |
+
 
 Scenario: A user cannot find a property that does not exist
 
