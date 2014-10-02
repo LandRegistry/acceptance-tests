@@ -18,6 +18,7 @@ require 'digest/md5'
 require 'capybara/cucumber'
 require 'cucumber-performance'
 require 'cucumber-performance-generator'
+require 'open-uri'
 
 ### Includes Capybara (the visit, find, fill_in commands) and poltergeist (channel to phantomjs headless browser)
 

@@ -7,4 +7,7 @@ Then(/^Audit for private citizen register view written$/) do
 
   match_string = $regData['title_number']
   check_logs_for_message(url, match_string)
+
+  match_string = get_ip_address()
+  check_logs_for_message(url, match_string)
 end

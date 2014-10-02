@@ -1,3 +1,9 @@
+def get_ip_address()
+  remote_ip = open('http://whatismyip.akamai.com').read
+  puts remote_ip
+  return remote_ip
+end
+
 def emailAddress()
   prefix = Time.now.strftime('%Y%m%d%H%M%S%L').to_s
   domain = "@example.org"
