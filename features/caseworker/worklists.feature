@@ -32,3 +32,5 @@ Scenario: Caseworker can process a change of name by way of marriage request and
   And I view the caseworker worklist
   When I approve the change of name by way of marriage request
   Then the register of title is updated with the new name
+  And the original register is saved to the historian database
+  
