@@ -23,6 +23,14 @@ $valid_characteristics['core']['freehold'] =                    true
 $valid_characteristics['core']['leasehold'] =                   true
 $valid_characteristics['core']['two proprietors'] =             true
 $valid_characteristics['core']['one proprietor'] =              true
+$valid_characteristics['core']['restictive covenants'] =        true
+$valid_characteristics['core']['bankruptcy notice'] =           true
+$valid_characteristics['core']['easement'] =                    true
+$valid_characteristics['core']['provision'] =                   true
+$valid_characteristics['core']['price paid'] =                  true
+$valid_characteristics['core']['restriction'] =                 true
+$valid_characteristics['core']['charge'] =                      true
+$valid_characteristics['core']['other'] =                       true
 
 ## Leasehold related characteristics
 $valid_characteristics['lease'] = {}
@@ -87,9 +95,9 @@ def format_data_characteristics(table)
           end
 
         end
-        #if (found == false) then
-        #  raise "Unexpected characteristic: " + value[0]
-        #end
+        if (found == false) then
+          raise "Unexpected characteristic: " + value[0]
+        end
 
 
       end

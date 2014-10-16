@@ -10,7 +10,6 @@ Scenario: Private Register with Title Extents
     | Citizen Invalid password login failed                                  | 2     |
     | Create relationship token for buyers                                   | 2     |
     | Full register of title                                                 | 2     |
-    | Processing Absolute Freehold First Registration with 1 proprietor (3)  | 2     |
     | View Change of Name in work queue (no Checking)                        | 2     |
   And I run for 1 minute
   And I ramp up 1 user every 1 seconds
@@ -23,5 +22,4 @@ Scenario: Private Register with Title Extents
     | Citizen Invalid password login failed                                  | 10      |
     | Create relationship token for buyers                                   | 10      |
     | Full register of title                                                 | 10      |
-    | Processing Absolute Freehold First Registration with 1 proprietor (3)  | 10      |
     | View Change of Name in work queue (no Checking)                        | 10      |

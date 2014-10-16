@@ -33,7 +33,7 @@ def create_change_of_name_marriage_request(marriage_data)
 
   change_of_name = {}
   change_of_name["application_type"] = "change-name-marriage"
-  change_of_name["title_number"]  = $regData['title_number']
+  change_of_name["title_number"]  = marriage_data['title_number']
   change_of_name["submitted_by"] = marriage_data['proprietor_full_name']
   change_of_name["request_details"] = {}
   change_of_name["request_details"]["action"] = "change-name-marriage"
