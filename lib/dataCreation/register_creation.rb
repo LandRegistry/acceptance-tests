@@ -247,3 +247,25 @@ def first_registration_data()
 
   return data
 end
+
+
+
+def sample_registration()
+      json = File.read('lib/dataCreation/sample_title.json')
+      tn = titleNumber()
+      json.gsub! 'TITLE_NUMBER_REPLACE_ME', tn
+      title = JSON.parse(json).to_json
+
+        puts title
+      uri = URI.parse($MINT_API_DOMAIN)
+      http = Net::HTTP.new(uri.host, uri.port)
+      request = Net::HTTP::Post.new('/titles/' + title['title_number'],  initheader = {'Content-Type' =>'application/json'})
+      request.basic_auth $http_auth_name, $http_auth_password
+
+      request.body = title
+      response = http.request(request)
+end
+
+Given(/^post a sample registration$/) do
+  sample_registration()
+end

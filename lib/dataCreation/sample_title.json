@@ -1,0 +1,131 @@
+{
+    "title_number": "TITLE_NUMBER_REPLACE_ME",
+    "proprietors": [
+        {
+            "full_name": "Michael Jones"
+        }
+    ],
+    "property": {
+        "address": {
+            "house_number": "8",
+            "road": "Miller Way",
+            "town": "Plymouth",
+            "postcode": "PL6 8UQ"
+        },
+        "tenure": "freehold",
+        "class_of_title": "absolute"
+    },
+    "payment": {
+        "price_paid": "12345",
+        "titles": [
+            "TITLE_NUMBER_REPLACE_ME"
+        ]
+    },
+    "extent": {
+        "type": "Feature",
+        "crs": {
+            "type": "name",
+            "properties": {
+                "name": "urn:ogc:def:crs:EPSG:27700"
+            }
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        530857.01,
+                        181500
+                    ],
+                    [
+                        530857,
+                        181500
+                    ],
+                    [
+                        530857,
+                        181500
+                    ],
+                    [
+                        530857,
+                        181500
+                    ],
+                    [
+                        530857.01,
+                        181500
+                    ]
+                ]
+            ]
+        },
+        "properties": {}
+    },
+    "proprietorship": {
+        "text": "PROPRIETOR(S): *RP*",
+        "fields": {
+            "proprietors": [
+                {
+                    "name": {
+                        "title": "Mr",
+                        "full_name": "Michael Jones",
+                        "decoration": ""
+                    },
+                    "address": {
+                        "full_address": "8 Miller Way, Plymouth, Devon, PL6 8UQ",
+                        "house_no": "8",
+                        "street_name": "Miller Way",
+                        "town": "Plymouth",
+                        "postal_county": "Devon",
+                        "region_name": "",
+                        "country": ""
+                    }
+                }
+            ]
+        },
+        "deeds": [],
+        "notes": []
+    },
+    "property_description": {
+        "text": "The Freehold land shown edged with red on the plan of the above Title filed at the Registry and being *AD*",
+        "fields": {
+            "address": {
+                "full_address": "8 Miller Way, Plymouth, Devon, PL6 8UQ",
+                "house_no": "8",
+                "street_name": "Miller Way",
+                "town": "Plymouth",
+                "postal_county": "Devon",
+                "region_name": "",
+                "country": ""
+            }
+        },
+        "deeds": [],
+        "notes": []
+    },
+    "price_paid": {},
+    "provisions": [
+        {
+            "text": "A *DT**DE* dated *DD* made between *DP* contains the following provision:-*VT*",
+            "fields": {
+                "extent": "of the land in this title",
+                "verbatim_text": "The land has the benefit of a right of way along the passageway to the rear of the property, and also a right of way on foot only on to the open ground on the north west boundary of the land in this title"
+            },
+            "deeds": [
+                {
+                    "type": "Transfer",
+                    "date": "01.06.1996",
+                    "parties": [
+                        {
+                            "title": "Mr",
+                            "full_name": "Michael Jones",
+                            "decoration": ""
+                        },
+                        {
+                            "title": "Mr",
+                            "full_name": "Jeff Smith",
+                            "decoration": ""
+                        }
+                    ]
+                }
+            ],
+            "notes": []
+        }
+    ]
+}
